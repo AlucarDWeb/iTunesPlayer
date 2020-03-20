@@ -9,11 +9,23 @@
 /* Begin PBXBuildFile section */
 		D2CF83D1242502A100B31D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D0242502A100B31D1D /* AppDelegate.swift */; };
 		D2CF83D3242502A100B31D1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D2242502A100B31D1D /* SceneDelegate.swift */; };
-		D2CF83D5242502A100B31D1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D4242502A100B31D1D /* ViewController.swift */; };
 		D2CF83D8242502A100B31D1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF83D6242502A100B31D1D /* Main.storyboard */; };
 		D2CF83DA242502A100B31D1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2CF83D9242502A100B31D1D /* Assets.xcassets */; };
 		D2CF83DD242502A100B31D1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF83DB242502A100B31D1D /* LaunchScreen.storyboard */; };
 		D2CF83E8242502A200B31D1D /* iTunesPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83E7242502A200B31D1D /* iTunesPlayerTests.swift */; };
+		D2CF83F92425050300B31D1D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83F82425050300B31D1D /* AppCoordinator.swift */; };
+		D2CF83FB2425051400B31D1D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83FA2425051400B31D1D /* Coordinator.swift */; };
+		D2CF83FD242505AB00B31D1D /* SearchAndPlayMusicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83FC242505AB00B31D1D /* SearchAndPlayMusicCoordinator.swift */; };
+		D2CF840024250B9C00B31D1D /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83FE24250B9C00B31D1D /* MusicListViewController.swift */; };
+		D2CF840124250B9C00B31D1D /* MusicListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CF83FF24250B9C00B31D1D /* MusicListViewController.xib */; };
+		D2CF840424250C4A00B31D1D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840324250C4900B31D1D /* BaseView.swift */; };
+		D2CF840624250C7B00B31D1D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840524250C7B00B31D1D /* ViewModel.swift */; };
+		D2CF840824250D4700B31D1D /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840724250D4700B31D1D /* Datasource.swift */; };
+		D2CF840B24250D9F00B31D1D /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840A24250D9F00B31D1D /* NSObject.swift */; };
+		D2CF840D2425104A00B31D1D /* MusicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840C2425104A00B31D1D /* MusicListViewModel.swift */; };
+		D2CF840F2425114D00B31D1D /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840E2425114D00B31D1D /* NetworkClient.swift */; };
+		D2CF84112425116E00B31D1D /* iTunesSearchNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF84102425116E00B31D1D /* iTunesSearchNetworkClient.swift */; };
+		D2CF8414242511C600B31D1D /* MusicDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF8413242511C600B31D1D /* MusicDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +42,6 @@
 		D2CF83CD242502A100B31D1D /* iTunesPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF83D0242502A100B31D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CF83D2242502A100B31D1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2CF83D4242502A100B31D1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D2CF83D7242502A100B31D1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2CF83D9242502A100B31D1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2CF83DC242502A100B31D1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +49,19 @@
 		D2CF83E3242502A200B31D1D /* iTunesPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF83E7242502A200B31D1D /* iTunesPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesPlayerTests.swift; sourceTree = "<group>"; };
 		D2CF83E9242502A200B31D1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2CF83F82425050300B31D1D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		D2CF83FA2425051400B31D1D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D2CF83FC242505AB00B31D1D /* SearchAndPlayMusicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndPlayMusicCoordinator.swift; sourceTree = "<group>"; };
+		D2CF83FE24250B9C00B31D1D /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
+		D2CF83FF24250B9C00B31D1D /* MusicListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicListViewController.xib; sourceTree = "<group>"; };
+		D2CF840324250C4900B31D1D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		D2CF840524250C7B00B31D1D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		D2CF840724250D4700B31D1D /* Datasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
+		D2CF840A24250D9F00B31D1D /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		D2CF840C2425104A00B31D1D /* MusicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewModel.swift; sourceTree = "<group>"; };
+		D2CF840E2425114D00B31D1D /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		D2CF84102425116E00B31D1D /* iTunesSearchNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearchNetworkClient.swift; sourceTree = "<group>"; };
+		D2CF8413242511C600B31D1D /* MusicDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDatasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +103,15 @@
 		D2CF83CF242502A100B31D1D /* iTunesPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				D2CF840924250D8900B31D1D /* Extensions */,
+				D2CF83F72425040400B31D1D /* Utility */,
+				D2CF83F6242503F800B31D1D /* Coordinators */,
+				D2CF83F5242503E500B31D1D /* Network */,
+				D2CF83F4242503DB00B31D1D /* Datasource */,
+				D2CF83F3242503D500B31D1D /* ViewModels */,
+				D2CF83F22425033D00B31D1D /* ViewControllers */,
 				D2CF83D0242502A100B31D1D /* AppDelegate.swift */,
 				D2CF83D2242502A100B31D1D /* SceneDelegate.swift */,
-				D2CF83D4242502A100B31D1D /* ViewController.swift */,
 				D2CF83D6242502A100B31D1D /* Main.storyboard */,
 				D2CF83D9242502A100B31D1D /* Assets.xcassets */,
 				D2CF83DB242502A100B31D1D /* LaunchScreen.storyboard */,
@@ -97,6 +127,76 @@
 				D2CF83E9242502A200B31D1D /* Info.plist */,
 			);
 			path = iTunesPlayerTests;
+			sourceTree = "<group>";
+		};
+		D2CF83F22425033D00B31D1D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D2CF840224250C0D00B31D1D /* MusicListViewController */,
+				D2CF840324250C4900B31D1D /* BaseView.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D2CF83F3242503D500B31D1D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D2CF840524250C7B00B31D1D /* ViewModel.swift */,
+				D2CF840C2425104A00B31D1D /* MusicListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D2CF83F4242503DB00B31D1D /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				D2CF840724250D4700B31D1D /* Datasource.swift */,
+				D2CF8413242511C600B31D1D /* MusicDatasource.swift */,
+			);
+			path = Datasource;
+			sourceTree = "<group>";
+		};
+		D2CF83F5242503E500B31D1D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D2CF840E2425114D00B31D1D /* NetworkClient.swift */,
+				D2CF84102425116E00B31D1D /* iTunesSearchNetworkClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D2CF83F6242503F800B31D1D /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				D2CF83F82425050300B31D1D /* AppCoordinator.swift */,
+				D2CF83FA2425051400B31D1D /* Coordinator.swift */,
+				D2CF83FC242505AB00B31D1D /* SearchAndPlayMusicCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		D2CF83F72425040400B31D1D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D2CF840224250C0D00B31D1D /* MusicListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D2CF83FF24250B9C00B31D1D /* MusicListViewController.xib */,
+				D2CF83FE24250B9C00B31D1D /* MusicListViewController.swift */,
+			);
+			path = MusicListViewController;
+			sourceTree = "<group>";
+		};
+		D2CF840924250D8900B31D1D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D2CF840A24250D9F00B31D1D /* NSObject.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2CF840124250B9C00B31D1D /* MusicListViewController.xib in Resources */,
 				D2CF83DD242502A100B31D1D /* LaunchScreen.storyboard in Resources */,
 				D2CF83DA242502A100B31D1D /* Assets.xcassets in Resources */,
 				D2CF83D8242502A100B31D1D /* Main.storyboard in Resources */,
@@ -200,9 +301,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2CF83D5242502A100B31D1D /* ViewController.swift in Sources */,
+				D2CF83FD242505AB00B31D1D /* SearchAndPlayMusicCoordinator.swift in Sources */,
+				D2CF840B24250D9F00B31D1D /* NSObject.swift in Sources */,
+				D2CF840624250C7B00B31D1D /* ViewModel.swift in Sources */,
+				D2CF840824250D4700B31D1D /* Datasource.swift in Sources */,
+				D2CF840D2425104A00B31D1D /* MusicListViewModel.swift in Sources */,
+				D2CF83F92425050300B31D1D /* AppCoordinator.swift in Sources */,
+				D2CF83FB2425051400B31D1D /* Coordinator.swift in Sources */,
 				D2CF83D1242502A100B31D1D /* AppDelegate.swift in Sources */,
+				D2CF8414242511C600B31D1D /* MusicDatasource.swift in Sources */,
 				D2CF83D3242502A100B31D1D /* SceneDelegate.swift in Sources */,
+				D2CF840024250B9C00B31D1D /* MusicListViewController.swift in Sources */,
+				D2CF840424250C4A00B31D1D /* BaseView.swift in Sources */,
+				D2CF84112425116E00B31D1D /* iTunesSearchNetworkClient.swift in Sources */,
+				D2CF840F2425114D00B31D1D /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
