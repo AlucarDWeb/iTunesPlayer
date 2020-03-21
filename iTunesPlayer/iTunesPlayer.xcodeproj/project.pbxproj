@@ -24,8 +24,10 @@
 		D2CF840B24250D9F00B31D1D /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840A24250D9F00B31D1D /* NSObject.swift */; };
 		D2CF840D2425104A00B31D1D /* MusicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840C2425104A00B31D1D /* MusicListViewModel.swift */; };
 		D2CF840F2425114D00B31D1D /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840E2425114D00B31D1D /* NetworkClient.swift */; };
-		D2CF84112425116E00B31D1D /* iTunesSearchNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF84102425116E00B31D1D /* iTunesSearchNetworkClient.swift */; };
 		D2CF8414242511C600B31D1D /* MusicDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF8413242511C600B31D1D /* MusicDatasource.swift */; };
+		D2CF84162426071400B31D1D /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF84152426071400B31D1D /* NetworkTask.swift */; };
+		D2CF84192426078100B31D1D /* GetMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF84182426078100B31D1D /* GetMusic.swift */; };
+		D2CF841B2426093400B31D1D /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF841A2426093400B31D1D /* URLExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +62,10 @@
 		D2CF840A24250D9F00B31D1D /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		D2CF840C2425104A00B31D1D /* MusicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewModel.swift; sourceTree = "<group>"; };
 		D2CF840E2425114D00B31D1D /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
-		D2CF84102425116E00B31D1D /* iTunesSearchNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearchNetworkClient.swift; sourceTree = "<group>"; };
 		D2CF8413242511C600B31D1D /* MusicDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDatasource.swift; sourceTree = "<group>"; };
+		D2CF84152426071400B31D1D /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
+		D2CF84182426078100B31D1D /* GetMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMusic.swift; sourceTree = "<group>"; };
+		D2CF841A2426093400B31D1D /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +163,8 @@
 		D2CF83F5242503E500B31D1D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D2CF84172426076F00B31D1D /* NetworkTasks */,
 				D2CF840E2425114D00B31D1D /* NetworkClient.swift */,
-				D2CF84102425116E00B31D1D /* iTunesSearchNetworkClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -195,8 +199,18 @@
 			isa = PBXGroup;
 			children = (
 				D2CF840A24250D9F00B31D1D /* NSObject.swift */,
+				D2CF841A2426093400B31D1D /* URLExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D2CF84172426076F00B31D1D /* NetworkTasks */ = {
+			isa = PBXGroup;
+			children = (
+				D2CF84152426071400B31D1D /* NetworkTask.swift */,
+				D2CF84182426078100B31D1D /* GetMusic.swift */,
+			);
+			path = NetworkTasks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,10 +324,12 @@
 				D2CF83FB2425051400B31D1D /* Coordinator.swift in Sources */,
 				D2CF83D1242502A100B31D1D /* AppDelegate.swift in Sources */,
 				D2CF8414242511C600B31D1D /* MusicDatasource.swift in Sources */,
+				D2CF84162426071400B31D1D /* NetworkTask.swift in Sources */,
+				D2CF84192426078100B31D1D /* GetMusic.swift in Sources */,
 				D2CF83D3242502A100B31D1D /* SceneDelegate.swift in Sources */,
 				D2CF840024250B9C00B31D1D /* MusicListViewController.swift in Sources */,
+				D2CF841B2426093400B31D1D /* URLExtension.swift in Sources */,
 				D2CF840424250C4A00B31D1D /* BaseView.swift in Sources */,
-				D2CF84112425116E00B31D1D /* iTunesSearchNetworkClient.swift in Sources */,
 				D2CF840F2425114D00B31D1D /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

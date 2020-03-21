@@ -18,7 +18,7 @@ final class SearchAndPlayMusicCoordinator: Coordinator {
 	}
 	
 	func start() {
-		let networkClient = ITunesSearchNetworkClient()
+		let networkClient = NetworkClient(session: URLSession.shared)
 		let datasource = MusicDatasource(with: networkClient)
 		let viewModel = MusicListViewModel(with: datasource)
 		let viewController = MusicListViewController(with: viewModel)
