@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2457AC7242631E300A62616 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AC6242631E300A62616 /* Song.swift */; };
+		D2457AC924263A8200A62616 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AC824263A8200A62616 /* Parser.swift */; };
 		D2CF83D1242502A100B31D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D0242502A100B31D1D /* AppDelegate.swift */; };
 		D2CF83D3242502A100B31D1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D2242502A100B31D1D /* SceneDelegate.swift */; };
 		D2CF83D8242502A100B31D1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF83D6242502A100B31D1D /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D2457AC6242631E300A62616 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		D2457AC824263A8200A62616 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		D2CF83CD242502A100B31D1D /* iTunesPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF83D0242502A100B31D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CF83D2242502A100B31D1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2457AC5242631A900A62616 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D2457AC6242631E300A62616 /* Song.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D2CF83C4242502A100B31D1D = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +119,7 @@
 		D2CF83CF242502A100B31D1D /* iTunesPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				D2457AC5242631A900A62616 /* Models */,
 				D2CF840924250D8900B31D1D /* Extensions */,
 				D2CF83F72425040400B31D1D /* Utility */,
 				D2CF83F6242503F800B31D1D /* Coordinators */,
@@ -182,6 +195,7 @@
 		D2CF83F72425040400B31D1D /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D2457AC824263A8200A62616 /* Parser.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -329,6 +343,8 @@
 				D2CF83D3242502A100B31D1D /* SceneDelegate.swift in Sources */,
 				D2CF840024250B9C00B31D1D /* MusicListViewController.swift in Sources */,
 				D2CF841B2426093400B31D1D /* URLExtension.swift in Sources */,
+				D2457AC924263A8200A62616 /* Parser.swift in Sources */,
+				D2457AC7242631E300A62616 /* Song.swift in Sources */,
 				D2CF840424250C4A00B31D1D /* BaseView.swift in Sources */,
 				D2CF840F2425114D00B31D1D /* NetworkClient.swift in Sources */,
 			);

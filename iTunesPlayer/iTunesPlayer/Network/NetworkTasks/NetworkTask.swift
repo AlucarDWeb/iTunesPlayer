@@ -14,7 +14,7 @@ import Foundation
 protocol NetworkTask {
 	var baseURL: String { get }
 	var method: HTTPMethod { get }
-	var queryItems: [URLQueryItem] { get }
+	var queryItems: [URLQueryItem]? { get }
 	
 	init(parameters: String)
 }

@@ -31,7 +31,7 @@ final class NetworkClient: NetworkClientProtocol {
 		
 		guard
 			let url = URL(string: baseURL),
-			let completeURL = url.appending(queryItems: task.queryItems) else {
+			let completeURL = url.appending(queryItems: task.queryItems ?? []) else {
 				completionHandler(.failure(NetworkError.malformedURL))
 				return
 		}
@@ -56,7 +56,7 @@ final class NetworkClient: NetworkClientProtocol {
 			}
 			
 			do {
-				let codableData = try JSONDecoder().decode(T.self, from: data)
+				let codableData: T = try Parser().decode(data)
 				completionHandler(.success(codableData))
 			} catch let error {
 				completionHandler(.failure(error))

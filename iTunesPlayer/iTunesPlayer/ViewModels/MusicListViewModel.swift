@@ -8,11 +8,25 @@
 
 import Foundation
 
-final class MusicListViewModel: ViewModel {
-	
+protocol MusicListViewModelProtocol: ViewModel {
+	func getMusicData()
+}
+
+final class MusicListViewModel: MusicListViewModelProtocol {
 	private let datasource: Datasource
 	
 	init(with dataSource: Datasource) {
 		self.datasource = dataSource
+	}
+	
+	func getMusicData() {
+		datasource.fetch(with: "M") { (result: Result<Songlist, Error>) in
+			switch result {
+			case .success(let songs):
+				print(songs.results)
+			case .failure(let error):
+				print(error.localizedDescription)
+			}
+		}
 	}
 }

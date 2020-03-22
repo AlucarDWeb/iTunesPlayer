@@ -10,9 +10,9 @@ import UIKit
 
 final class MusicListViewController: UIViewController, BaseView {
 	
-	private let viewModel: ViewModel
+	private let viewModel: MusicListViewModelProtocol
 	
-	required init(with viewModel: ViewModel) {
+	required init(with viewModel: MusicListViewModelProtocol) {
 		self.viewModel = viewModel
 		
 		super.init(nibName: Self.nameOfClass, bundle: nil)
@@ -24,6 +24,8 @@ final class MusicListViewController: UIViewController, BaseView {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		viewModel.getMusicData()
 		
 		// Do any additional setup after loading the view.
 	}

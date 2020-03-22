@@ -9,5 +9,5 @@
 import Foundation
 
 protocol BaseView {
-	init(with viewModel: ViewModel)
+	
 }

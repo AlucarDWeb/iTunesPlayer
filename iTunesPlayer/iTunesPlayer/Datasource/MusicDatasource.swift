@@ -9,9 +9,14 @@
 import Foundation
 
 final class MusicDatasource: Datasource {
+	
 	private let networkClient: NetworkClient
 	
 	init(with networkClient: NetworkClient) {
 		self.networkClient = networkClient
+	}
+	
+	func fetch<T: Decodable>(with searchParameters: String, completion: @escaping (Result<T, Error>) -> Void) {
+		networkClient.perform(requestType: .getMusic(parameters: searchParameters), completionHandler: completion)
 	}
 }

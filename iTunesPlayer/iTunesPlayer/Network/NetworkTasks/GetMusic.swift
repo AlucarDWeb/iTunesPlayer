@@ -9,13 +9,17 @@
 import Foundation
 
 struct GetMusic: NetworkTask {
-	var baseURL: String = ""
+	let baseURL: String = "https://itunes.apple.com/search?"
 	
-	var method: HTTPMethod = .get
+	let method: HTTPMethod = .get
 	
-	var queryItems: [URLQueryItem] = []
+	var queryItems: [URLQueryItem]? {
+		return [URLQueryItem(name: "term", value: parameters)]
+	}
+	
+	private let parameters: String
 	
 	init(parameters: String) {
-		
+		self.parameters = parameters
 	}
 }

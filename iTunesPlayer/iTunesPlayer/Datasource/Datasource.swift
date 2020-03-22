@@ -9,5 +9,8 @@
 import Foundation
 
 protocol Datasource {
+	
 	init (with networkClient: NetworkClient)
+	
+	func fetch<T: Decodable>(with searchParameters: String, completion: @escaping(Result<T, Error>) ->Void)
 }
