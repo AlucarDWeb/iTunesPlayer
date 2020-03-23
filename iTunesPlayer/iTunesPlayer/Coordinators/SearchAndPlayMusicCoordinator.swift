@@ -22,6 +22,7 @@ final class SearchAndPlayMusicCoordinator: Coordinator {
 		let datasource = MusicDatasource(with: networkClient)
 		let viewModel = MusicListViewModel(with: datasource)
 		let viewController = MusicListViewController(with: viewModel)
+		viewModel.delegate = viewController
 		navigationController.pushViewController(viewController, animated: true)
 	}
 }

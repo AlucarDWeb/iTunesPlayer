@@ -9,23 +9,44 @@
 import Foundation
 
 protocol MusicListViewModelProtocol: ViewModel {
-	func getMusicData()
+	var dataset: [Song] { get }
+	
+	init(with dataSource: Datasource)
+	
+	func getMusicData(with parameters: String)
+}
+
+protocol MusicListViewModelDelegate: class {
+	func MusicListViewModel(didUpdate songs: [Song])
+    func MusicListViewModel(shouldShowActivityIndicator: Bool)
+    func MusicListViewModel(willShow error: Error?)
 }
 
 final class MusicListViewModel: MusicListViewModelProtocol {
+	
+	private (set)var dataset: [Song] = []
 	private let datasource: Datasource
+	
+	weak var delegate: MusicListViewModelDelegate?
 	
 	init(with dataSource: Datasource) {
 		self.datasource = dataSource
 	}
 	
-	func getMusicData() {
-		datasource.fetch(with: "M") { (result: Result<Songlist, Error>) in
+	func getMusicData(with parameters: String) {
+		self.delegate?.MusicListViewModel(shouldShowActivityIndicator: true)
+		datasource.fetch(with: parameters) { [weak self] (result: Result<Songlist, Error>) in
+			guard let self = self else { return }
+			
+			self.delegate?.MusicListViewModel(shouldShowActivityIndicator: false)
+			
 			switch result {
 			case .success(let songs):
-				print(songs.results)
+				self.delegate?.MusicListViewModel(willShow: nil)
+				self.dataset = songs.results
+				self.delegate?.MusicListViewModel(didUpdate: songs.results)
 			case .failure(let error):
-				print(error.localizedDescription)
+				self.delegate?.MusicListViewModel(willShow: error)
 			}
 		}
 	}

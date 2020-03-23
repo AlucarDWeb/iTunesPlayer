@@ -11,6 +11,19 @@ import UIKit
 final class MusicListViewController: UIViewController, BaseView {
 	
 	private let viewModel: MusicListViewModelProtocol
+	private let searchController = UISearchController(searchResultsController: nil)
+	
+	@IBOutlet private weak var noResultsView: UIView!
+	@IBOutlet private weak var collectionView: UICollectionView!
+	
+	private struct CollectionViewConfigurationData {
+		static let cellIdentifier = "musicCell"
+		static let numberOfSections = 1
+		static let itemFractionalWidth: CGFloat = 1
+		static let itemEstimatedHeight: CGFloat = 350
+		static let contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
+		static let interGroupSpacing: CGFloat = 10
+	}
 	
 	required init(with viewModel: MusicListViewModelProtocol) {
 		self.viewModel = viewModel
@@ -25,8 +38,107 @@ final class MusicListViewController: UIViewController, BaseView {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		viewModel.getMusicData()
+		setupSearchController()
+		setupViews()
+		setupCollectionView()
+		viewModel.getMusicData(with: "Metallica")
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		
-		// Do any additional setup after loading the view.
+		navigationController?.navigationBar.prefersLargeTitles = true
+	}
+}
+
+// MARK: - UICollectionViewDelegate & UICollectionViewDataSource
+extension MusicListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
+		return CollectionViewConfigurationData.numberOfSections
+	}
+	
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		collectionView?.collectionViewLayout.invalidateLayout()
+	}
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return viewModel.dataset.count
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewConfigurationData.cellIdentifier,
+															for: indexPath) as? MusicListCollectionViewCell else {
+			return UICollectionViewCell()
+		}
+		
+		let cellViewModel = MusicListCellViewModel(with: viewModel.dataset[indexPath.row])
+		cell.viewModel = cellViewModel
+		cell.configure()
+		return cell
+	}
+}
+
+extension MusicListViewController: UISearchResultsUpdating {
+	func updateSearchResults(for searchController: UISearchController) {
+		guard let searchText = searchController.searchBar.text else { return }
+		
+		viewModel.getMusicData(with: searchText)
+	}
+}
+
+extension MusicListViewController: MusicListViewModelDelegate {
+	func MusicListViewModel(didUpdate songs: [Song]) {
+		DispatchQueue.main.async {
+			self.noResultsView.isHidden = !songs.isEmpty
+			self.collectionView.reloadData()
+		}
+	}
+	
+	func MusicListViewModel(shouldShowActivityIndicator: Bool) {
+		DispatchQueue.main.async {
+			shouldShowActivityIndicator == true ? self.showLoadingIndicator() : self.hideLoadingIndicator()
+		}
+	}
+	
+	func MusicListViewModel(willShow error: Error?) {
+		DispatchQueue.main.async {
+			guard let error = error else { return }
+			self.showErrorPopup(with: error)
+		}
+	}
+}
+
+private extension MusicListViewController {
+	func setupViews() {
+		self.title = NSLocalizedString("iTunes search", comment: "list title")
+	}
+	
+	func setupSearchController() {
+		searchController.definesPresentationContext = true
+		searchController.searchResultsUpdater = self
+		searchController.obscuresBackgroundDuringPresentation = false
+		searchController.searchBar.placeholder =  NSLocalizedString("Search by artist, song name", comment: "search bar placeholder")
+		navigationItem.searchController = searchController
+		definesPresentationContext = true
+	}
+	
+	func setupCollectionView() {
+		let size = NSCollectionLayoutSize(
+			widthDimension: NSCollectionLayoutDimension.fractionalWidth(CollectionViewConfigurationData.itemFractionalWidth),
+			heightDimension: NSCollectionLayoutDimension.estimated(CollectionViewConfigurationData.itemEstimatedHeight)
+		)
+		
+		let item = NSCollectionLayoutItem(layoutSize: size)
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
+		
+		let section = NSCollectionLayoutSection(group: group)
+		section.contentInsets = CollectionViewConfigurationData.contentInsets
+		section.interGroupSpacing = CollectionViewConfigurationData.interGroupSpacing
+		
+		let layout = UICollectionViewCompositionalLayout(section: section)
+		self.collectionView.register(UINib(nibName: MusicListCollectionViewCell.nameOfClass, bundle: nil),
+									 forCellWithReuseIdentifier: CollectionViewConfigurationData.cellIdentifier)
+		self.collectionView.delegate = self
+		self.collectionView.dataSource = self
+		self.collectionView.collectionViewLayout = layout
 	}
 }

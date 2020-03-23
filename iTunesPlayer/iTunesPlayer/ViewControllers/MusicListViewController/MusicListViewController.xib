@@ -9,25 +9,61 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MusicListViewController" customModule="iTunesPlayer" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="collectionView" destination="gUw-tm-giu" id="hW1-H5-ytv"/>
+                <outlet property="noResultsView" destination="0N1-i9-oJo" id="4y4-Ik-eor"/>
+                <outlet property="view" destination="XBl-tB-NO8" id="syv-Vp-o0g"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view contentMode="scaleToFill" id="XBl-tB-NO8">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYx-Dk-aJE">
-                    <rect key="frame" x="186" y="445" width="30" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gUw-tm-giu">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NRu-dQ-ll2">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0N1-i9-oJo">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e79-np-nbc">
+                            <rect key="frame" x="0.0" y="359" width="414" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="5DF-du-f8U"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="29"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="e79-np-nbc" firstAttribute="centerY" secondItem="0N1-i9-oJo" secondAttribute="centerY" id="00I-1I-D7b"/>
+                        <constraint firstAttribute="trailing" secondItem="e79-np-nbc" secondAttribute="trailing" id="IcE-cb-BAD"/>
+                        <constraint firstItem="e79-np-nbc" firstAttribute="leading" secondItem="0N1-i9-oJo" secondAttribute="leading" id="pen-BS-sz3"/>
+                        <constraint firstItem="e79-np-nbc" firstAttribute="centerX" secondItem="0N1-i9-oJo" secondAttribute="centerX" id="tzT-vm-OOE"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="135"/>
+            <constraints>
+                <constraint firstItem="fiN-h9-Emo" firstAttribute="trailing" secondItem="gUw-tm-giu" secondAttribute="trailing" id="8vp-di-ULE"/>
+                <constraint firstItem="fiN-h9-Emo" firstAttribute="bottom" secondItem="gUw-tm-giu" secondAttribute="bottom" id="9eT-Rn-824"/>
+                <constraint firstItem="0N1-i9-oJo" firstAttribute="top" secondItem="fiN-h9-Emo" secondAttribute="top" id="Ify-Bw-KFs"/>
+                <constraint firstItem="gUw-tm-giu" firstAttribute="leading" secondItem="fiN-h9-Emo" secondAttribute="leading" id="Qq7-3B-fpU"/>
+                <constraint firstItem="0N1-i9-oJo" firstAttribute="leading" secondItem="fiN-h9-Emo" secondAttribute="leading" id="SKL-oN-KGR"/>
+                <constraint firstItem="gUw-tm-giu" firstAttribute="top" secondItem="fiN-h9-Emo" secondAttribute="top" id="azj-oR-nMh"/>
+                <constraint firstItem="fiN-h9-Emo" firstAttribute="trailing" secondItem="0N1-i9-oJo" secondAttribute="trailing" id="tgH-0j-vXZ"/>
+                <constraint firstItem="fiN-h9-Emo" firstAttribute="bottom" secondItem="0N1-i9-oJo" secondAttribute="bottom" id="wnE-AD-weh"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fiN-h9-Emo"/>
+            <point key="canvasLocation" x="139" y="153"/>
         </view>
     </objects>
 </document>

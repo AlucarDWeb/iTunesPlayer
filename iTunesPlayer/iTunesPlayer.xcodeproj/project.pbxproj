@@ -3,12 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D2457AC7242631E300A62616 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AC6242631E300A62616 /* Song.swift */; };
 		D2457AC924263A8200A62616 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AC824263A8200A62616 /* Parser.swift */; };
+		D2457ACD2428E69000A62616 /* MusicListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457ACB2428E69000A62616 /* MusicListCollectionViewCell.swift */; };
+		D2457ACE2428E69000A62616 /* MusicListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2457ACC2428E69000A62616 /* MusicListCollectionViewCell.xib */; };
+		D2457AD02428E8CE00A62616 /* MusicListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457ACF2428E8CE00A62616 /* MusicListCellViewModel.swift */; };
+		D2457AD32429009C00A62616 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D2457AD22429009C00A62616 /* SDWebImage */; };
 		D2CF83D1242502A100B31D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D0242502A100B31D1D /* AppDelegate.swift */; };
 		D2CF83D3242502A100B31D1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D2242502A100B31D1D /* SceneDelegate.swift */; };
 		D2CF83D8242502A100B31D1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF83D6242502A100B31D1D /* Main.storyboard */; };
@@ -45,6 +49,9 @@
 /* Begin PBXFileReference section */
 		D2457AC6242631E300A62616 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		D2457AC824263A8200A62616 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		D2457ACB2428E69000A62616 /* MusicListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCollectionViewCell.swift; sourceTree = "<group>"; };
+		D2457ACC2428E69000A62616 /* MusicListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicListCollectionViewCell.xib; sourceTree = "<group>"; };
+		D2457ACF2428E8CE00A62616 /* MusicListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCellViewModel.swift; sourceTree = "<group>"; };
 		D2CF83CD242502A100B31D1D /* iTunesPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF83D0242502A100B31D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CF83D2242502A100B31D1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2457AD32429009C00A62616 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +104,15 @@
 				D2457AC6242631E300A62616 /* Song.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D2457ACA2428E66700A62616 /* MusicListCollectionViewcell */ = {
+			isa = PBXGroup;
+			children = (
+				D2457ACB2428E69000A62616 /* MusicListCollectionViewCell.swift */,
+				D2457ACC2428E69000A62616 /* MusicListCollectionViewCell.xib */,
+			);
+			path = MusicListCollectionViewcell;
 			sourceTree = "<group>";
 		};
 		D2CF83C4242502A100B31D1D = {
@@ -160,6 +177,7 @@
 			children = (
 				D2CF840524250C7B00B31D1D /* ViewModel.swift */,
 				D2CF840C2425104A00B31D1D /* MusicListViewModel.swift */,
+				D2457ACF2428E8CE00A62616 /* MusicListCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -203,6 +221,7 @@
 		D2CF840224250C0D00B31D1D /* MusicListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D2457ACA2428E66700A62616 /* MusicListCollectionViewcell */,
 				D2CF83FF24250B9C00B31D1D /* MusicListViewController.xib */,
 				D2CF83FE24250B9C00B31D1D /* MusicListViewController.swift */,
 			);
@@ -243,6 +262,9 @@
 			dependencies = (
 			);
 			name = iTunesPlayer;
+			packageProductDependencies = (
+				D2457AD22429009C00A62616 /* SDWebImage */,
+			);
 			productName = iTunesPlayer;
 			productReference = D2CF83CD242502A100B31D1D /* iTunesPlayer.app */;
 			productType = "com.apple.product-type.application";
@@ -293,6 +315,9 @@
 				Base,
 			);
 			mainGroup = D2CF83C4242502A100B31D1D;
+			packageReferences = (
+				D2457AD12429009C00A62616 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = D2CF83CE242502A100B31D1D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2CF840124250B9C00B31D1D /* MusicListViewController.xib in Resources */,
+				D2457ACE2428E69000A62616 /* MusicListCollectionViewCell.xib in Resources */,
 				D2CF83DD242502A100B31D1D /* LaunchScreen.storyboard in Resources */,
 				D2CF83DA242502A100B31D1D /* Assets.xcassets in Resources */,
 				D2CF83D8242502A100B31D1D /* Main.storyboard in Resources */,
@@ -337,6 +363,7 @@
 				D2CF83F92425050300B31D1D /* AppCoordinator.swift in Sources */,
 				D2CF83FB2425051400B31D1D /* Coordinator.swift in Sources */,
 				D2CF83D1242502A100B31D1D /* AppDelegate.swift in Sources */,
+				D2457ACD2428E69000A62616 /* MusicListCollectionViewCell.swift in Sources */,
 				D2CF8414242511C600B31D1D /* MusicDatasource.swift in Sources */,
 				D2CF84162426071400B31D1D /* NetworkTask.swift in Sources */,
 				D2CF84192426078100B31D1D /* GetMusic.swift in Sources */,
@@ -344,6 +371,7 @@
 				D2CF840024250B9C00B31D1D /* MusicListViewController.swift in Sources */,
 				D2CF841B2426093400B31D1D /* URLExtension.swift in Sources */,
 				D2457AC924263A8200A62616 /* Parser.swift in Sources */,
+				D2457AD02428E8CE00A62616 /* MusicListCellViewModel.swift in Sources */,
 				D2457AC7242631E300A62616 /* Song.swift in Sources */,
 				D2CF840424250C4A00B31D1D /* BaseView.swift in Sources */,
 				D2CF840F2425114D00B31D1D /* NetworkClient.swift in Sources */,
@@ -613,6 +641,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D2457AD12429009C00A62616 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D2457AD22429009C00A62616 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2457AD12429009C00A62616 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D2CF83C5242502A100B31D1D /* Project object */;
 }

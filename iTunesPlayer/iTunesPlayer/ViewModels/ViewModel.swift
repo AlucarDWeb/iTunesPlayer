@@ -8,6 +8,4 @@
 
 import Foundation
 
-protocol ViewModel {
-	init(with dataSource: Datasource)
-}
+protocol ViewModel {}
