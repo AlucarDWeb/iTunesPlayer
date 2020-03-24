@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gUw-tm-giu">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="93" width="414" height="769"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NRu-dQ-ll2">
                         <size key="itemSize" width="50" height="50"/>
@@ -30,12 +30,12 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0N1-i9-oJo">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="93" width="414" height="769"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e79-np-nbc">
-                            <rect key="frame" x="0.0" y="359" width="414" height="100"/>
+                            <rect key="frame" x="0.0" y="334.5" width="414" height="100"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="100" id="5DF-du-f8U"/>
+                                <constraint firstAttribute="height" constant="100" id="wPc-dn-f6X"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="29"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,26 +44,39 @@
                     </subviews>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="e79-np-nbc" firstAttribute="centerY" secondItem="0N1-i9-oJo" secondAttribute="centerY" id="00I-1I-D7b"/>
-                        <constraint firstAttribute="trailing" secondItem="e79-np-nbc" secondAttribute="trailing" id="IcE-cb-BAD"/>
-                        <constraint firstItem="e79-np-nbc" firstAttribute="leading" secondItem="0N1-i9-oJo" secondAttribute="leading" id="pen-BS-sz3"/>
-                        <constraint firstItem="e79-np-nbc" firstAttribute="centerX" secondItem="0N1-i9-oJo" secondAttribute="centerX" id="tzT-vm-OOE"/>
+                        <constraint firstItem="e79-np-nbc" firstAttribute="leading" secondItem="0N1-i9-oJo" secondAttribute="leading" id="53s-fA-NcZ"/>
+                        <constraint firstAttribute="trailing" secondItem="e79-np-nbc" secondAttribute="trailing" id="TWg-Rs-76S"/>
+                        <constraint firstItem="e79-np-nbc" firstAttribute="centerY" secondItem="0N1-i9-oJo" secondAttribute="centerY" id="dVc-kW-2ST"/>
                     </constraints>
                 </view>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6DG-V2-aP9">
+                    <rect key="frame" x="20" y="54" width="374" height="32"/>
+                    <segments>
+                        <segment title="Song Length"/>
+                        <segment title="Genre"/>
+                        <segment title="Price"/>
+                    </segments>
+                    <connections>
+                        <action selector="filterAction:" destination="-1" eventType="valueChanged" id="1Dg-Tz-Klx"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fiN-h9-Emo" firstAttribute="trailing" secondItem="gUw-tm-giu" secondAttribute="trailing" id="8vp-di-ULE"/>
-                <constraint firstItem="fiN-h9-Emo" firstAttribute="bottom" secondItem="gUw-tm-giu" secondAttribute="bottom" id="9eT-Rn-824"/>
-                <constraint firstItem="0N1-i9-oJo" firstAttribute="top" secondItem="fiN-h9-Emo" secondAttribute="top" id="Ify-Bw-KFs"/>
-                <constraint firstItem="gUw-tm-giu" firstAttribute="leading" secondItem="fiN-h9-Emo" secondAttribute="leading" id="Qq7-3B-fpU"/>
-                <constraint firstItem="0N1-i9-oJo" firstAttribute="leading" secondItem="fiN-h9-Emo" secondAttribute="leading" id="SKL-oN-KGR"/>
-                <constraint firstItem="gUw-tm-giu" firstAttribute="top" secondItem="fiN-h9-Emo" secondAttribute="top" id="azj-oR-nMh"/>
-                <constraint firstItem="fiN-h9-Emo" firstAttribute="trailing" secondItem="0N1-i9-oJo" secondAttribute="trailing" id="tgH-0j-vXZ"/>
-                <constraint firstItem="fiN-h9-Emo" firstAttribute="bottom" secondItem="0N1-i9-oJo" secondAttribute="bottom" id="wnE-AD-weh"/>
+                <constraint firstItem="gUw-tm-giu" firstAttribute="leading" secondItem="XBl-tB-NO8" secondAttribute="leading" id="2ew-ax-zVB"/>
+                <constraint firstAttribute="trailing" secondItem="gUw-tm-giu" secondAttribute="trailing" id="2wO-I9-C9g"/>
+                <constraint firstItem="0N1-i9-oJo" firstAttribute="top" secondItem="gUw-tm-giu" secondAttribute="top" id="8Pq-2P-03Q"/>
+                <constraint firstItem="0N1-i9-oJo" firstAttribute="top" secondItem="6DG-V2-aP9" secondAttribute="bottom" constant="8" symbolic="YES" id="CuM-HA-I6b"/>
+                <constraint firstItem="0N1-i9-oJo" firstAttribute="bottom" secondItem="fiN-h9-Emo" secondAttribute="bottom" id="GH7-8W-rzC"/>
+                <constraint firstItem="6DG-V2-aP9" firstAttribute="centerX" secondItem="gUw-tm-giu" secondAttribute="centerX" id="QCI-vS-wbI"/>
+                <constraint firstItem="6DG-V2-aP9" firstAttribute="leading" secondItem="XBl-tB-NO8" secondAttribute="leadingMargin" id="YeJ-Yv-bSb"/>
+                <constraint firstItem="0N1-i9-oJo" firstAttribute="bottom" secondItem="gUw-tm-giu" secondAttribute="bottom" id="ZYd-cU-0ve"/>
+                <constraint firstItem="0N1-i9-oJo" firstAttribute="leading" secondItem="gUw-tm-giu" secondAttribute="leading" id="udL-Ej-l3O"/>
+                <constraint firstItem="6DG-V2-aP9" firstAttribute="top" secondItem="fiN-h9-Emo" secondAttribute="top" constant="10" id="x7x-QO-9mg"/>
+                <constraint firstItem="0N1-i9-oJo" firstAttribute="trailing" secondItem="gUw-tm-giu" secondAttribute="trailing" id="xPd-KL-isg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fiN-h9-Emo"/>
-            <point key="canvasLocation" x="139" y="153"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </view>
     </objects>
 </document>

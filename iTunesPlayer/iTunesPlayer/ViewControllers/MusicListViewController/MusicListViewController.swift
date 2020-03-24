@@ -49,6 +49,10 @@ final class MusicListViewController: UIViewController, BaseView {
 		
 		navigationController?.navigationBar.prefersLargeTitles = true
 	}
+	
+	@IBAction private func filterAction(_ sender: UISegmentedControl) {
+		viewModel.sortDataset(sortingOption: SortingOptions(rawValue: sender.selectedSegmentIndex) ?? SortingOptions.length)
+	}
 }
 
 // MARK: - UICollectionViewDelegate & UICollectionViewDataSource
@@ -60,6 +64,7 @@ extension MusicListViewController: UICollectionViewDelegate, UICollectionViewDat
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 		collectionView?.collectionViewLayout.invalidateLayout()
 	}
+	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return viewModel.dataset.count
 	}

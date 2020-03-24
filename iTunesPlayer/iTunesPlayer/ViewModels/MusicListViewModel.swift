@@ -8,12 +8,20 @@
 
 import Foundation
 
+
+enum SortingOptions: Int {
+	case length = 0
+	case genre = 1
+	case price = 2
+}
+
 protocol MusicListViewModelProtocol: ViewModel {
 	var dataset: [Song] { get }
 	
 	init(with dataSource: Datasource)
 	
 	func getMusicData(with parameters: String)
+	func sortDataset(sortingOption: SortingOptions)
 }
 
 protocol MusicListViewModelDelegate: class {
@@ -34,6 +42,8 @@ final class MusicListViewModel: MusicListViewModelProtocol {
 	}
 	
 	func getMusicData(with parameters: String) {
+		guard !parameters.isEmpty else { return }
+		
 		self.delegate?.MusicListViewModel(shouldShowActivityIndicator: true)
 		datasource.fetch(with: parameters) { [weak self] (result: Result<Songlist, Error>) in
 			guard let self = self else { return }
@@ -48,6 +58,20 @@ final class MusicListViewModel: MusicListViewModelProtocol {
 			case .failure(let error):
 				self.delegate?.MusicListViewModel(willShow: error)
 			}
+		}
+	}
+	
+	func sortDataset(sortingOption: SortingOptions) {
+		switch sortingOption {
+		case .length:
+			dataset.sort { $0.duration.localizedStandardCompare($1.duration) == .orderedAscending }
+			delegate?.MusicListViewModel(didUpdate: dataset)
+		case .genre:
+			dataset.sort { $0.genre < $1.genre }
+			delegate?.MusicListViewModel(didUpdate: dataset)
+		case .price:
+			dataset.sort { $0.trackPrice ?? 0 < $1.trackPrice ?? 0 }
+			delegate?.MusicListViewModel(didUpdate: dataset)
 		}
 	}
 }

@@ -23,6 +23,7 @@ struct Song: Decodable {
 	let genre: String //primaryGenreName
 	private let trackTimeMillis: Double?
 	let previewUrl: URL?
+	let currency: String
 	
 	var duration: String {
 		return millisConvertionToMinutes(rawMillis: trackTimeMillis ?? 0)
@@ -39,6 +40,7 @@ struct Song: Decodable {
 		case genre = "primaryGenreName"
 		case trackTimeMillis
 		case previewUrl
+		case currency
 	}
 	
 	init(from decoder: Decoder) throws {
@@ -55,6 +57,7 @@ struct Song: Decodable {
 		
 		trackTimeMillis = try container.decodeIfPresent(Double.self, forKey: .trackTimeMillis)
 		previewUrl = try container.decodeIfPresent(URL.self, forKey: .previewUrl)
+		currency = try container.decode(String.self, forKey: .currency)
 	}
 }
 
