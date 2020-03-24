@@ -19,10 +19,19 @@ final class SearchAndPlayMusicCoordinator: Coordinator {
 	
 	func start() {
 		let networkClient = NetworkClient(session: URLSession.shared)
-		let datasource = MusicDatasource(with: networkClient)
-		let viewModel = MusicListViewModel(with: datasource)
-		let viewController = MusicListViewController(with: viewModel)
-		viewModel.delegate = viewController
-		navigationController.pushViewController(viewController, animated: true)
+		let musicDatasource = MusicDatasource(with: networkClient)
+		let musicListviewModel = MusicListViewModel(with: musicDatasource)
+		let musicListViewController = MusicListViewController(with: musicListviewModel)
+		musicListviewModel.delegate = musicListViewController
+		musicListViewController.delegate = self
+		navigationController.pushViewController(musicListViewController, animated: true)
+	}
+}
+
+extension SearchAndPlayMusicCoordinator: MusicListViewControllerDelegate {
+	func musicListViewController(didSelect song: Song, from dataset: [Song]) {
+		let songDetailViewModel = SongDetailViewModel(with: dataset, and: song)
+		let songDetailViewController = SongDetailViewController(with: songDetailViewModel)
+		navigationController.pushViewController(songDetailViewController, animated: true)
 	}
 }

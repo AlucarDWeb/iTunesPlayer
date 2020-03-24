@@ -49,7 +49,7 @@
                         <constraint firstItem="e79-np-nbc" firstAttribute="centerY" secondItem="0N1-i9-oJo" secondAttribute="centerY" id="dVc-kW-2ST"/>
                     </constraints>
                 </view>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6DG-V2-aP9">
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="6DG-V2-aP9">
                     <rect key="frame" x="20" y="54" width="374" height="32"/>
                     <segments>
                         <segment title="Song Length"/>

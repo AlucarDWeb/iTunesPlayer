@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum CurrencyUnit: String, Decodable {
+	case USD
+}
+
 struct Songlist: Decodable {
 	let results: [Song]
 }
@@ -23,7 +27,7 @@ struct Song: Decodable {
 	let genre: String //primaryGenreName
 	private let trackTimeMillis: Double?
 	let previewUrl: URL?
-	let currency: String
+	let currency: CurrencyUnit
 	
 	var duration: String {
 		return millisConvertionToMinutes(rawMillis: trackTimeMillis ?? 0)
@@ -54,13 +58,13 @@ struct Song: Decodable {
 		coverDetail = try container.decode(URL.self, forKey: .coverDetail)
 		trackPrice = try container.decodeIfPresent(Double.self, forKey: .trackPrice)
 		genre = try container.decode(String.self, forKey: .genre)
-		
 		trackTimeMillis = try container.decodeIfPresent(Double.self, forKey: .trackTimeMillis)
 		previewUrl = try container.decodeIfPresent(URL.self, forKey: .previewUrl)
-		currency = try container.decode(String.self, forKey: .currency)
+		currency = try container.decode(CurrencyUnit.self, forKey: .currency)
 	}
 }
 
+// TODO spostare questo nel posto più appropriato
 private extension Song {
 	func millisConvertionToMinutes(rawMillis: Double) -> String {
 		let date = Date(timeIntervalSince1970: rawMillis / 1000)

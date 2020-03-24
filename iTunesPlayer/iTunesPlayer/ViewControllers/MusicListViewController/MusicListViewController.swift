@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol MusicListViewControllerDelegate: class {
+	func musicListViewController(didSelect song: Song, from dataset: [Song])
+}
+
 final class MusicListViewController: UIViewController, BaseView {
 	
 	private let viewModel: MusicListViewModelProtocol
 	private let searchController = UISearchController(searchResultsController: nil)
+	
+	weak var delegate: MusicListViewControllerDelegate?
 	
 	@IBOutlet private weak var noResultsView: UIView!
 	@IBOutlet private weak var collectionView: UICollectionView!
@@ -72,6 +78,7 @@ extension MusicListViewController: UICollectionViewDelegate, UICollectionViewDat
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewConfigurationData.cellIdentifier,
 															for: indexPath) as? MusicListCollectionViewCell else {
+			print("Cannot dequeue MusicListCollectionViewCell. An error occurred")
 			return UICollectionViewCell()
 		}
 		
@@ -79,6 +86,10 @@ extension MusicListViewController: UICollectionViewDelegate, UICollectionViewDat
 		cell.viewModel = cellViewModel
 		cell.configure()
 		return cell
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		delegate?.musicListViewController(didSelect: viewModel.dataset[indexPath.row], from: viewModel.dataset)
 	}
 }
 

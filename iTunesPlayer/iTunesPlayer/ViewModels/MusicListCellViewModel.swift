@@ -8,20 +8,7 @@
 
 import UIKit
 
-protocol MusicListCellViewModelProtocol: ViewModel {
-	init(with song: Song)
-	
-	var title: String { get }
-	var artist: String { get }
-	var albumTitle: String { get }
-	var releaseDate: String { get }
-	var songLength: String { get }
-	var genre: String { get }
-	var price: String { get }
-	var coverImageURL: URL { get }
-}
-
-struct MusicListCellViewModel: MusicListCellViewModelProtocol {
+struct MusicListCellViewModel: SongViewModel {
 	private let song: Song
 	
 	init(with song: Song) {
@@ -56,11 +43,19 @@ struct MusicListCellViewModel: MusicListCellViewModelProtocol {
 	}
 	
 	var price: String {
-		return song.trackPrice?.description ?? ""
+		let price = song.trackPrice?.description ?? ""
+		return "\(price)\(currency)"
 	}
 	
 	var coverImageURL: URL {
 		return song.coverDetail
+	}
+	
+	private var currency: String {
+		switch song.currency {
+		case .USD:
+			return "$"
+		}
 	}
 }
 

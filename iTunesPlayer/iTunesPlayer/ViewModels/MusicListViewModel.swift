@@ -15,7 +15,7 @@ enum SortingOptions: Int {
 	case price = 2
 }
 
-protocol MusicListViewModelProtocol: ViewModel {
+protocol MusicListViewModelProtocol {
 	var dataset: [Song] { get }
 	
 	init(with dataSource: Datasource)
