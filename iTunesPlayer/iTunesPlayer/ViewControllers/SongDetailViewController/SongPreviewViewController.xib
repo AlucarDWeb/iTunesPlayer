@@ -55,8 +55,8 @@
                         <constraint firstAttribute="height" constant="60" id="vXB-IE-94X"/>
                     </constraints>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Ka-qg-grY">
-                    <rect key="frame" x="5" y="562" width="404" height="41"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Ka-qg-grY">
+                    <rect key="frame" x="10" y="562" width="399" height="41"/>
                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="30"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -92,7 +92,7 @@
                 <constraint firstItem="I7n-ez-n8S" firstAttribute="top" secondItem="5Ka-qg-grY" secondAttribute="bottom" constant="20" id="AxU-Hn-hNw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5aj-G3-1kR" secondAttribute="trailing" constant="5" id="Cet-bE-tWa"/>
                 <constraint firstItem="5Ka-qg-grY" firstAttribute="top" secondItem="5aj-G3-1kR" secondAttribute="bottom" constant="5" id="Ee8-pj-1Cf"/>
-                <constraint firstItem="5Ka-qg-grY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="QxG-cs-l6W"/>
+                <constraint firstItem="5Ka-qg-grY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="QxG-cs-l6W"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Ka-qg-grY" secondAttribute="trailing" constant="5" id="SOO-Q5-oS0"/>
                 <constraint firstItem="EwU-4m-z4l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bmC-V6-Qqp"/>
                 <constraint firstItem="5aj-G3-1kR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="eBS-rv-zgL"/>

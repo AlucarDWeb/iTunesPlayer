@@ -34,7 +34,15 @@ extension SearchAndPlayMusicCoordinator: MusicListViewControllerDelegate {
 		let songPreviewDatasource = SongPreviewDatasource(with: networkClient)
 		let songPreviewViewModel = SongPreviewViewModel(with: dataset, selectedIndex: index, and: songPreviewDatasource)
 		let songPreviewViewController = SongPreviewViewController(with: songPreviewViewModel)
+		songPreviewViewController.delegate = self
 		songPreviewViewModel.delegate = songPreviewViewController
 		navigationController.pushViewController(songPreviewViewController, animated: true)
+	}
+}
+
+extension SearchAndPlayMusicCoordinator: SongPreviewViewControllerDelegate {
+	func songPreviewViewController(_ controller: UIViewController, share items: [Any]) {
+		let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+		controller.present(activityViewController, animated: true, completion: nil)
 	}
 }

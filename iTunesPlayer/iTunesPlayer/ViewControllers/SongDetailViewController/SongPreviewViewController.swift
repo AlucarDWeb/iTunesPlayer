@@ -10,11 +10,17 @@ import UIKit
 import SDWebImage
 import AVFoundation
 
+protocol SongPreviewViewControllerDelegate: class {
+	func songPreviewViewController(_ controller: UIViewController, share items: [Any])
+}
+
 // MARK: - SongPreviewViewController
 final class SongPreviewViewController: UIViewController, BaseView {
 	
 	private let viewModel: SongPreviewViewModelProtocol
 	private var audioPlayer: AVAudioPlayer?
+	
+	weak var delegate: SongPreviewViewControllerDelegate?
 	
 	@IBOutlet private weak var genreLabel: UILabel!
 	@IBOutlet private weak var artistNameLabel: UILabel!
@@ -35,7 +41,10 @@ final class SongPreviewViewController: UIViewController, BaseView {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: ViewImages.shareImage,
+															style: .plain,
+															target: self,
+															action: #selector(share(sender:)))
 		setupViews(with: viewModel.selectedSong)
 	}
 	
@@ -66,6 +75,13 @@ final class SongPreviewViewController: UIViewController, BaseView {
 	@IBAction private func nextSong(_ sender: Any) {
 		viewModel.switchSong(status: .forward)
 	}
+	
+	@objc func share(sender: UIView) {
+		let textToShare = "\(viewModel.selectedSong.trackName ?? "") from \(viewModel.selectedSong.artistName)"
+		guard let previewURL = viewModel.selectedSong.previewUrl else { return }
+		
+		delegate?.songPreviewViewController(self, share: [textToShare, previewURL])
+	}
 }
 
 private extension SongPreviewViewController {
@@ -83,7 +99,8 @@ private extension SongPreviewViewController {
 		}
 	}
 	
-	struct PlayerControlsImages {
+	struct ViewImages {
+		static let shareImage = UIImage(systemName: "square.and.arrow.up")
 		static let playImage = UIImage(systemName: "play.fill")
 		static let pauseImage = UIImage(systemName: "pause.fill")
 	}
@@ -93,18 +110,18 @@ extension SongPreviewViewController: SongPreviewViewModelDelegate {
 	func songPreviewViewModel(updatedSong: Song) {
 		audioPlayer = nil
 		setupViews(with: updatedSong)
-		setPlayButtonImage(image: PlayerControlsImages.playImage)
+		setPlayButtonImage(image: ViewImages.playImage)
 	}
 	
 	func songPreviewViewModel(willPausePlaying: Bool) {
 		guard willPausePlaying else { return }
 		
-		setPlayButtonImage(image: PlayerControlsImages.playImage)
+		setPlayButtonImage(image: ViewImages.playImage)
 		audioPlayer?.pause()
 	}
 	
 	func songPreviewViewModel(preview URL: URL) {
-		setPlayButtonImage(image: PlayerControlsImages.pauseImage)
+		setPlayButtonImage(image: ViewImages.pauseImage)
 		
 		do {
 			audioPlayer = try AVAudioPlayer(contentsOf: URL)
