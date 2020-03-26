@@ -9,11 +9,10 @@
 import UIKit
 
 protocol MusicListViewControllerDelegate: class {
-	func musicListViewController(didSelect song: Song, from dataset: [Song])
+	func musicListViewController(didSelectElementAt index: Int, from dataset: [Song])
 }
 
 final class MusicListViewController: UIViewController, BaseView {
-	
 	private let viewModel: MusicListViewModelProtocol
 	private let searchController = UISearchController(searchResultsController: nil)
 	
@@ -89,7 +88,7 @@ extension MusicListViewController: UICollectionViewDelegate, UICollectionViewDat
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		delegate?.musicListViewController(didSelect: viewModel.dataset[indexPath.row], from: viewModel.dataset)
+		delegate?.musicListViewController(didSelectElementAt: indexPath.row, from: viewModel.dataset)
 	}
 }
 

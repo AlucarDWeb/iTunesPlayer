@@ -8,7 +8,11 @@
 
 import Foundation
 
-final class MusicDatasource: Datasource {
+protocol MusicListDatasourceProtocol: Datasource {
+	func fetch<T: Decodable>(with searchParameters: String, completion: @escaping(Result<T, Error>) ->Void)
+}
+
+final class MusicListDatasource: MusicListDatasourceProtocol {
 	
 	private let networkClient: NetworkClient
 	

@@ -18,7 +18,7 @@ enum SortingOptions: Int {
 protocol MusicListViewModelProtocol {
 	var dataset: [Song] { get }
 	
-	init(with dataSource: Datasource)
+	init(with dataSource: MusicListDatasource)
 	
 	func getMusicData(with parameters: String)
 	func sortDataset(sortingOption: SortingOptions)
@@ -33,11 +33,11 @@ protocol MusicListViewModelDelegate: class {
 final class MusicListViewModel: MusicListViewModelProtocol {
 	
 	private (set)var dataset: [Song] = []
-	private let datasource: Datasource
+	private let datasource: MusicListDatasource
 	
 	weak var delegate: MusicListViewModelDelegate?
 	
-	init(with dataSource: Datasource) {
+	init(with dataSource: MusicListDatasource) {
 		self.datasource = dataSource
 	}
 	

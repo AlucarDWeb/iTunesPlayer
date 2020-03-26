@@ -13,6 +13,9 @@ protocol NetworkClientProtocol {
 	
 	func perform<T: Decodable>(requestType: NetworkTaskType,
 							   completionHandler: @escaping (Result<T, Error>) -> Void)
+	func download(from URL: URL,
+				  to destinationURL: URL?,
+				  completionHandler: @escaping (Result<URL, Error>) -> Void)
 }
 
 final class NetworkClient: NetworkClientProtocol {
@@ -64,5 +67,42 @@ final class NetworkClient: NetworkClientProtocol {
 		}
 		
 		dataTask.resume()
+	}
+	
+	func download(from URL: URL, to destinationURL: URL?, completionHandler: @escaping (Result<URL, Error>) -> Void) {
+	
+		guard let destinationURL = destinationURL else { return }
+
+		let downloadTask = session.downloadTask(with: URL,completionHandler: { (data, response, error) -> Void in
+			if let error = error {
+				completionHandler(.failure(error))
+				return
+			}
+			
+			guard let httpResponse = response as? HTTPURLResponse else {
+				completionHandler(.failure(NetworkError.invalidResponse))
+				return
+			}
+			
+			guard let data = data else {
+				completionHandler(.failure(NetworkError.invalidData(statusCode: httpResponse.statusCode)))
+				return
+			}
+			
+			do {
+				if FileManager.default.fileExists(atPath: destinationURL.path) {
+					try FileManager.default.removeItem(at: destinationURL)
+					try FileManager.default.copyItem(at: data, to: destinationURL)
+					completionHandler(.success(destinationURL))
+				} else {
+					try FileManager.default.copyItem(at: data, to: destinationURL)
+					completionHandler(.success(destinationURL))
+				}
+			} catch let error {
+				completionHandler(.failure(error))
+			}
+		})
+		
+		downloadTask.resume()
 	}
 }

@@ -13,9 +13,10 @@
 		D2457ACE2428E69000A62616 /* MusicListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2457ACC2428E69000A62616 /* MusicListCollectionViewCell.xib */; };
 		D2457AD02428E8CE00A62616 /* MusicListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457ACF2428E8CE00A62616 /* MusicListCellViewModel.swift */; };
 		D2457AD32429009C00A62616 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D2457AD22429009C00A62616 /* SDWebImage */; };
-		D2457AD5242A423500A62616 /* SongDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AD4242A423500A62616 /* SongDetailViewModel.swift */; };
-		D2457AD9242A493700A62616 /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AD7242A493700A62616 /* SongDetailViewController.swift */; };
-		D2457ADA242A493700A62616 /* SongDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2457AD8242A493700A62616 /* SongDetailViewController.xib */; };
+		D2457AD5242A423500A62616 /* SongPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AD4242A423500A62616 /* SongPreviewViewModel.swift */; };
+		D2457AD9242A493700A62616 /* SongPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AD7242A493700A62616 /* SongPreviewViewController.swift */; };
+		D2457ADA242A493700A62616 /* SongPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2457AD8242A493700A62616 /* SongPreviewViewController.xib */; };
+		D2C6938E242BA37900660FB7 /* SongPreviewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C6938D242BA37900660FB7 /* SongPreviewDatasource.swift */; };
 		D2CF83D1242502A100B31D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D0242502A100B31D1D /* AppDelegate.swift */; };
 		D2CF83D3242502A100B31D1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D2242502A100B31D1D /* SceneDelegate.swift */; };
 		D2CF83D8242502A100B31D1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF83D6242502A100B31D1D /* Main.storyboard */; };
@@ -33,7 +34,7 @@
 		D2CF840B24250D9F00B31D1D /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840A24250D9F00B31D1D /* NSObject.swift */; };
 		D2CF840D2425104A00B31D1D /* MusicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840C2425104A00B31D1D /* MusicListViewModel.swift */; };
 		D2CF840F2425114D00B31D1D /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF840E2425114D00B31D1D /* NetworkClient.swift */; };
-		D2CF8414242511C600B31D1D /* MusicDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF8413242511C600B31D1D /* MusicDatasource.swift */; };
+		D2CF8414242511C600B31D1D /* MusicListDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF8413242511C600B31D1D /* MusicListDatasource.swift */; };
 		D2CF84162426071400B31D1D /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF84152426071400B31D1D /* NetworkTask.swift */; };
 		D2CF84192426078100B31D1D /* GetMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF84182426078100B31D1D /* GetMusic.swift */; };
 		D2CF841B2426093400B31D1D /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF841A2426093400B31D1D /* URLExtension.swift */; };
@@ -55,9 +56,10 @@
 		D2457ACB2428E69000A62616 /* MusicListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2457ACC2428E69000A62616 /* MusicListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicListCollectionViewCell.xib; sourceTree = "<group>"; };
 		D2457ACF2428E8CE00A62616 /* MusicListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCellViewModel.swift; sourceTree = "<group>"; };
-		D2457AD4242A423500A62616 /* SongDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewModel.swift; sourceTree = "<group>"; };
-		D2457AD7242A493700A62616 /* SongDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewController.swift; sourceTree = "<group>"; };
-		D2457AD8242A493700A62616 /* SongDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongDetailViewController.xib; sourceTree = "<group>"; };
+		D2457AD4242A423500A62616 /* SongPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPreviewViewModel.swift; sourceTree = "<group>"; };
+		D2457AD7242A493700A62616 /* SongPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPreviewViewController.swift; sourceTree = "<group>"; };
+		D2457AD8242A493700A62616 /* SongPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongPreviewViewController.xib; sourceTree = "<group>"; };
+		D2C6938D242BA37900660FB7 /* SongPreviewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPreviewDatasource.swift; sourceTree = "<group>"; };
 		D2CF83CD242502A100B31D1D /* iTunesPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF83D0242502A100B31D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CF83D2242502A100B31D1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +81,7 @@
 		D2CF840A24250D9F00B31D1D /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		D2CF840C2425104A00B31D1D /* MusicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewModel.swift; sourceTree = "<group>"; };
 		D2CF840E2425114D00B31D1D /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
-		D2CF8413242511C600B31D1D /* MusicDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDatasource.swift; sourceTree = "<group>"; };
+		D2CF8413242511C600B31D1D /* MusicListDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListDatasource.swift; sourceTree = "<group>"; };
 		D2CF84152426071400B31D1D /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		D2CF84182426078100B31D1D /* GetMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMusic.swift; sourceTree = "<group>"; };
 		D2CF841A2426093400B31D1D /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
@@ -124,8 +126,8 @@
 		D2457AD6242A48E500A62616 /* SongDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D2457AD7242A493700A62616 /* SongDetailViewController.swift */,
-				D2457AD8242A493700A62616 /* SongDetailViewController.xib */,
+				D2457AD7242A493700A62616 /* SongPreviewViewController.swift */,
+				D2457AD8242A493700A62616 /* SongPreviewViewController.xib */,
 			);
 			path = SongDetailViewController;
 			sourceTree = "<group>";
@@ -194,7 +196,7 @@
 				D2CF840524250C7B00B31D1D /* SongViewModel.swift */,
 				D2CF840C2425104A00B31D1D /* MusicListViewModel.swift */,
 				D2457ACF2428E8CE00A62616 /* MusicListCellViewModel.swift */,
-				D2457AD4242A423500A62616 /* SongDetailViewModel.swift */,
+				D2457AD4242A423500A62616 /* SongPreviewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -203,7 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				D2CF840724250D4700B31D1D /* Datasource.swift */,
-				D2CF8413242511C600B31D1D /* MusicDatasource.swift */,
+				D2CF8413242511C600B31D1D /* MusicListDatasource.swift */,
+				D2C6938D242BA37900660FB7 /* SongPreviewDatasource.swift */,
 			);
 			path = Datasource;
 			sourceTree = "<group>";
@@ -352,7 +355,7 @@
 			files = (
 				D2CF840124250B9C00B31D1D /* MusicListViewController.xib in Resources */,
 				D2457ACE2428E69000A62616 /* MusicListCollectionViewCell.xib in Resources */,
-				D2457ADA242A493700A62616 /* SongDetailViewController.xib in Resources */,
+				D2457ADA242A493700A62616 /* SongPreviewViewController.xib in Resources */,
 				D2CF83DD242502A100B31D1D /* LaunchScreen.storyboard in Resources */,
 				D2CF83DA242502A100B31D1D /* Assets.xcassets in Resources */,
 				D2CF83D8242502A100B31D1D /* Main.storyboard in Resources */,
@@ -375,18 +378,19 @@
 			files = (
 				D2CF83FD242505AB00B31D1D /* SearchAndPlayMusicCoordinator.swift in Sources */,
 				D2CF840B24250D9F00B31D1D /* NSObject.swift in Sources */,
-				D2457AD9242A493700A62616 /* SongDetailViewController.swift in Sources */,
+				D2457AD9242A493700A62616 /* SongPreviewViewController.swift in Sources */,
 				D2CF840624250C7B00B31D1D /* SongViewModel.swift in Sources */,
 				D2CF840824250D4700B31D1D /* Datasource.swift in Sources */,
 				D2CF840D2425104A00B31D1D /* MusicListViewModel.swift in Sources */,
 				D2CF83F92425050300B31D1D /* AppCoordinator.swift in Sources */,
+				D2C6938E242BA37900660FB7 /* SongPreviewDatasource.swift in Sources */,
 				D2CF83FB2425051400B31D1D /* Coordinator.swift in Sources */,
 				D2CF83D1242502A100B31D1D /* AppDelegate.swift in Sources */,
 				D2457ACD2428E69000A62616 /* MusicListCollectionViewCell.swift in Sources */,
-				D2CF8414242511C600B31D1D /* MusicDatasource.swift in Sources */,
+				D2CF8414242511C600B31D1D /* MusicListDatasource.swift in Sources */,
 				D2CF84162426071400B31D1D /* NetworkTask.swift in Sources */,
 				D2CF84192426078100B31D1D /* GetMusic.swift in Sources */,
-				D2457AD5242A423500A62616 /* SongDetailViewModel.swift in Sources */,
+				D2457AD5242A423500A62616 /* SongPreviewViewModel.swift in Sources */,
 				D2CF83D3242502A100B31D1D /* SceneDelegate.swift in Sources */,
 				D2CF840024250B9C00B31D1D /* MusicListViewController.swift in Sources */,
 				D2CF841B2426093400B31D1D /* URLExtension.swift in Sources */,

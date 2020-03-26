@@ -19,7 +19,7 @@ final class SearchAndPlayMusicCoordinator: Coordinator {
 	
 	func start() {
 		let networkClient = NetworkClient(session: URLSession.shared)
-		let musicDatasource = MusicDatasource(with: networkClient)
+		let musicDatasource = MusicListDatasource(with: networkClient)
 		let musicListviewModel = MusicListViewModel(with: musicDatasource)
 		let musicListViewController = MusicListViewController(with: musicListviewModel)
 		musicListviewModel.delegate = musicListViewController
@@ -29,9 +29,12 @@ final class SearchAndPlayMusicCoordinator: Coordinator {
 }
 
 extension SearchAndPlayMusicCoordinator: MusicListViewControllerDelegate {
-	func musicListViewController(didSelect song: Song, from dataset: [Song]) {
-		let songDetailViewModel = SongDetailViewModel(with: dataset, and: song)
-		let songDetailViewController = SongDetailViewController(with: songDetailViewModel)
-		navigationController.pushViewController(songDetailViewController, animated: true)
+	func musicListViewController(didSelectElementAt index: Int, from dataset: [Song]) {
+		let networkClient = NetworkClient(session: URLSession.shared)
+		let songPreviewDatasource = SongPreviewDatasource(with: networkClient)
+		let songPreviewViewModel = SongPreviewViewModel(with: dataset, selectedIndex: index, and: songPreviewDatasource)
+		let songPreviewViewController = SongPreviewViewController(with: songPreviewViewModel)
+		songPreviewViewModel.delegate = songPreviewViewController
+		navigationController.pushViewController(songPreviewViewController, animated: true)
 	}
 }

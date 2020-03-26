@@ -64,7 +64,7 @@ struct Song: Decodable {
 	}
 }
 
-// TODO spostare questo nel posto più appropriato
+// TODO spostare questo nel posto più appropriato, nel parser
 private extension Song {
 	func millisConvertionToMinutes(rawMillis: Double) -> String {
 		let date = Date(timeIntervalSince1970: rawMillis / 1000)
