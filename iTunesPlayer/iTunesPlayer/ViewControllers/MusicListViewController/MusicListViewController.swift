@@ -92,8 +92,8 @@ extension MusicListViewController: UICollectionViewDelegate, UICollectionViewDat
 	}
 }
 
-extension MusicListViewController: UISearchResultsUpdating {
-	func updateSearchResults(for searchController: UISearchController) {
+extension MusicListViewController: UISearchBarDelegate {
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		guard let searchText = searchController.searchBar.text else { return }
 		
 		viewModel.getMusicData(with: searchText)
@@ -124,12 +124,12 @@ extension MusicListViewController: MusicListViewModelDelegate {
 
 private extension MusicListViewController {
 	func setupViews() {
-		self.title = NSLocalizedString("iTunes search", comment: "list title")
+		self.title = NSLocalizedString("iTunes Music search", comment: "list title")
 	}
 	
 	func setupSearchController() {
+		searchController.searchBar.delegate = self
 		searchController.definesPresentationContext = true
-		searchController.searchResultsUpdater = self
 		searchController.obscuresBackgroundDuringPresentation = false
 		searchController.searchBar.placeholder =  NSLocalizedString("Search by artist, song name", comment: "search bar placeholder")
 		navigationItem.searchController = searchController
