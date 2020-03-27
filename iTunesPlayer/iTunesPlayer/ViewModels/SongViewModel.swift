@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - SongViewModel
 protocol SongViewModel {
 	init(with song: Song)
 	

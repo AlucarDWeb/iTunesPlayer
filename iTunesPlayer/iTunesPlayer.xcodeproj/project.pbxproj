@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D2457AC7242631E300A62616 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AC6242631E300A62616 /* Song.swift */; };
-		D2457AC924263A8200A62616 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AC824263A8200A62616 /* Parser.swift */; };
+		D2457AC924263A8200A62616 /* CodableParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AC824263A8200A62616 /* CodableParser.swift */; };
 		D2457ACD2428E69000A62616 /* MusicListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457ACB2428E69000A62616 /* MusicListCollectionViewCell.swift */; };
 		D2457ACE2428E69000A62616 /* MusicListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2457ACC2428E69000A62616 /* MusicListCollectionViewCell.xib */; };
 		D2457AD02428E8CE00A62616 /* MusicListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457ACF2428E8CE00A62616 /* MusicListCellViewModel.swift */; };
@@ -17,6 +17,7 @@
 		D2457AD9242A493700A62616 /* SongPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2457AD7242A493700A62616 /* SongPreviewViewController.swift */; };
 		D2457ADA242A493700A62616 /* SongPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2457AD8242A493700A62616 /* SongPreviewViewController.xib */; };
 		D2C6938E242BA37900660FB7 /* SongPreviewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C6938D242BA37900660FB7 /* SongPreviewDatasource.swift */; };
+		D2CCDC2C242E0772000D4EBA /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCDC2B242E0772000D4EBA /* DateFormatterExtension.swift */; };
 		D2CF83D1242502A100B31D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D0242502A100B31D1D /* AppDelegate.swift */; };
 		D2CF83D3242502A100B31D1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D2242502A100B31D1D /* SceneDelegate.swift */; };
 		D2CF83D8242502A100B31D1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF83D6242502A100B31D1D /* Main.storyboard */; };
@@ -52,7 +53,7 @@
 
 /* Begin PBXFileReference section */
 		D2457AC6242631E300A62616 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		D2457AC824263A8200A62616 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		D2457AC824263A8200A62616 /* CodableParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableParser.swift; sourceTree = "<group>"; };
 		D2457ACB2428E69000A62616 /* MusicListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2457ACC2428E69000A62616 /* MusicListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicListCollectionViewCell.xib; sourceTree = "<group>"; };
 		D2457ACF2428E8CE00A62616 /* MusicListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCellViewModel.swift; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 		D2457AD7242A493700A62616 /* SongPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPreviewViewController.swift; sourceTree = "<group>"; };
 		D2457AD8242A493700A62616 /* SongPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongPreviewViewController.xib; sourceTree = "<group>"; };
 		D2C6938D242BA37900660FB7 /* SongPreviewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPreviewDatasource.swift; sourceTree = "<group>"; };
+		D2CCDC2B242E0772000D4EBA /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		D2CF83CD242502A100B31D1D /* iTunesPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF83D0242502A100B31D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CF83D2242502A100B31D1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,7 +235,7 @@
 		D2CF83F72425040400B31D1D /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				D2457AC824263A8200A62616 /* Parser.swift */,
+				D2457AC824263A8200A62616 /* CodableParser.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -253,6 +255,7 @@
 			children = (
 				D2CF840A24250D9F00B31D1D /* NSObject.swift */,
 				D2CF841A2426093400B31D1D /* URLExtension.swift */,
+				D2CCDC2B242E0772000D4EBA /* DateFormatterExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -390,11 +393,12 @@
 				D2CF8414242511C600B31D1D /* MusicListDatasource.swift in Sources */,
 				D2CF84162426071400B31D1D /* NetworkTask.swift in Sources */,
 				D2CF84192426078100B31D1D /* GetMusic.swift in Sources */,
+				D2CCDC2C242E0772000D4EBA /* DateFormatterExtension.swift in Sources */,
 				D2457AD5242A423500A62616 /* SongPreviewViewModel.swift in Sources */,
 				D2CF83D3242502A100B31D1D /* SceneDelegate.swift in Sources */,
 				D2CF840024250B9C00B31D1D /* MusicListViewController.swift in Sources */,
 				D2CF841B2426093400B31D1D /* URLExtension.swift in Sources */,
-				D2457AC924263A8200A62616 /* Parser.swift in Sources */,
+				D2457AC924263A8200A62616 /* CodableParser.swift in Sources */,
 				D2457AD02428E8CE00A62616 /* MusicListCellViewModel.swift in Sources */,
 				D2457AC7242631E300A62616 /* Song.swift in Sources */,
 				D2CF840424250C4A00B31D1D /* BaseView.swift in Sources */,
@@ -568,7 +572,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Ferdinando-Furci.iTunesPlayer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -586,7 +590,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Ferdinando-Furci.iTunesPlayer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

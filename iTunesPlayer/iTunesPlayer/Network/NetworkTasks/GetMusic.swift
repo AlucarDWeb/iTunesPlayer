@@ -8,17 +8,18 @@
 
 import Foundation
 
+// MARK: - GetMusic
 struct GetMusic: NetworkTask {
-	let baseURL: String = "https://itunes.apple.com/search?"
+	private let parameters: String
 	
+	let baseURL: String = "https://itunes.apple.com/search?"
 	let method: HTTPMethod = .get
 	
 	var queryItems: [URLQueryItem]? {
 		return [URLQueryItem(name: "term", value: parameters)]
 	}
 	
-	private let parameters: String
-	
+	// MARK: Initialization
 	init(parameters: String) {
 		self.parameters = parameters
 	}

@@ -8,14 +8,17 @@
 
 import Foundation
 
+// MARK: - CurrencyUnit
 enum CurrencyUnit: String, Decodable {
 	case USD
 }
 
+// MARK: - Songlist
 struct Songlist: Decodable {
 	let results: [Song]
 }
 
+// MARK: - Song
 struct Song: Decodable {
 	let artistName: String
 	let trackName: String?
@@ -30,7 +33,7 @@ struct Song: Decodable {
 	let currency: CurrencyUnit
 	
 	var duration: String {
-		return millisConvertionToMinutes(rawMillis: trackTimeMillis ?? 0)
+		return DateFormatter.millisecondsConvertionToMinutes(rawMillis: trackTimeMillis ?? 0)
 	}
 	
 	private enum CodingKeys: String, CodingKey {
@@ -61,16 +64,5 @@ struct Song: Decodable {
 		trackTimeMillis = try container.decodeIfPresent(Double.self, forKey: .trackTimeMillis)
 		previewUrl = try container.decodeIfPresent(URL.self, forKey: .previewUrl)
 		currency = try container.decode(CurrencyUnit.self, forKey: .currency)
-	}
-}
-
-// TODO spostare questo nel posto più appropriato, nel parser
-private extension Song {
-	func millisConvertionToMinutes(rawMillis: Double) -> String {
-		let date = Date(timeIntervalSince1970: rawMillis / 1000)
-		let formatter = DateFormatter()
-		formatter.timeZone = TimeZone(identifier: "UTC")
-		formatter.dateFormat = "HH:mm:ss"
-		return formatter.string(from: date)
 	}
 }

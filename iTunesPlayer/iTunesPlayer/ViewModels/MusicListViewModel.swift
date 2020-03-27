@@ -8,13 +8,14 @@
 
 import Foundation
 
-
+// MARK: - SortingOptions
 enum SortingOptions: Int {
 	case length = 0
 	case genre = 1
 	case price = 2
 }
 
+// MARK: - MusicListViewModelProtocol
 protocol MusicListViewModelProtocol {
 	var dataset: [Song] { get }
 	
@@ -24,23 +25,28 @@ protocol MusicListViewModelProtocol {
 	func sortDataset(sortingOption: SortingOptions)
 }
 
+// MARK: - MusicListViewModelDelegate
 protocol MusicListViewModelDelegate: class {
 	func MusicListViewModel(didUpdate songs: [Song])
     func MusicListViewModel(shouldShowActivityIndicator: Bool)
     func MusicListViewModel(willShow error: Error?)
 }
 
+// MARK: - MusicListViewModel
 final class MusicListViewModel: MusicListViewModelProtocol {
 	
+	// MARK: Private properties
 	private (set)var dataset: [Song] = []
 	private let datasource: MusicListDatasource
 	
 	weak var delegate: MusicListViewModelDelegate?
 	
+	// MARK: Initialization
 	init(with dataSource: MusicListDatasource) {
 		self.datasource = dataSource
 	}
 	
+	// MARK: Protocol functions
 	func getMusicData(with parameters: String) {
 		guard !parameters.isEmpty else { return }
 		

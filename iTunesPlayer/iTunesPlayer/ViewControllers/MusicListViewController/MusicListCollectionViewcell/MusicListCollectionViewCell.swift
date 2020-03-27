@@ -9,10 +9,12 @@
 import UIKit
 import SDWebImage
 
+// MARK: - MusicListCollectionViewCell
 final class MusicListCollectionViewCell: UICollectionViewCell {
 	
 	var viewModel: MusicListCellViewModel?
 	
+	// MARK: IBOutlets
 	@IBOutlet private weak var releaseDateLabel: UILabel!
 	@IBOutlet private weak var lengthLabel: UILabel!
 	@IBOutlet private weak var priceLabel: UILabel!

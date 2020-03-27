@@ -8,14 +8,17 @@
 
 import Foundation
 
+// MARK: - SongSwitchStatus
 enum SongSwitchStatus {
 	case forward
 	case backward
 }
 
+// MARK: - SongPreviewViewModelProtocol
 protocol SongPreviewViewModelProtocol {
 	var playlist: [Song] { get }
 	var selectedSong: Song { get }
+	var shareData: [Any] { get }
 	
 	init (with dataset: [Song], selectedIndex: Int, and datasource: SongPreviewDatasourceProtocol)
 	
@@ -24,6 +27,7 @@ protocol SongPreviewViewModelProtocol {
 	func switchSong(status: SongSwitchStatus)
 }
 
+// MARK: - SongPreviewViewModelDelegate
 protocol SongPreviewViewModelDelegate: class {
 	func songPreviewViewModel(updatedSong: Song)
 	func songPreviewViewModel(preview URL: URL)
@@ -31,15 +35,25 @@ protocol SongPreviewViewModelDelegate: class {
 	func songPreviewViewModel(willShow error: Error?)
 }
 
+// MARK: - SongPreviewViewModel
 final class SongPreviewViewModel: SongPreviewViewModelProtocol {
+	
+	// MARK: Private properties
+	private let datasource: SongPreviewDatasourceProtocol
+	private var selectedIndex: Int
+	
+	// MARK: Public properties
 	let playlist: [Song]
 	var selectedSong: Song
 	
 	weak var delegate: SongPreviewViewModelDelegate?
 	
-	private let datasource: SongPreviewDatasourceProtocol
-	private var selectedIndex: Int
+	var shareData: [Any] {
+		let shareText = "\(selectedSong.trackName ?? "") from \(selectedSong.artistName)"
+		return [shareText, selectedSong.previewUrl as Any].compactMap { $0 }
+	}
 	
+	// MARK: Initialization
 	init(with playlist: [Song], selectedIndex: Int, and datasource: SongPreviewDatasourceProtocol) {
 		self.playlist = playlist
 		self.selectedIndex = selectedIndex
@@ -47,6 +61,7 @@ final class SongPreviewViewModel: SongPreviewViewModelProtocol {
 		self.selectedSong = playlist[selectedIndex]
 	}
 	
+	// MARK: Protocol functions
 	func play(newSong: Bool) {
 		if !newSong {
 			guard let destinationURL = datasource.songDownloadDestinationURL else { return }

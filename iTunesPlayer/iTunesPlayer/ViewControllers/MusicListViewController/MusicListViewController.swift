@@ -8,18 +8,17 @@
 
 import UIKit
 
+// MARK: - MusicListViewControllerDelegate
 protocol MusicListViewControllerDelegate: class {
 	func musicListViewController(didSelectElementAt index: Int, from dataset: [Song])
 }
 
+// MARK: - MusicListViewController
 final class MusicListViewController: UIViewController, BaseView {
+	
+	// MARK: Private properties
 	private let viewModel: MusicListViewModelProtocol
 	private let searchController = UISearchController(searchResultsController: nil)
-	
-	weak var delegate: MusicListViewControllerDelegate?
-	
-	@IBOutlet private weak var noResultsView: UIView!
-	@IBOutlet private weak var collectionView: UICollectionView!
 	
 	private struct CollectionViewConfigurationData {
 		static let cellIdentifier = "musicCell"
@@ -30,6 +29,13 @@ final class MusicListViewController: UIViewController, BaseView {
 		static let interGroupSpacing: CGFloat = 10
 	}
 	
+	// MARK: IBOutlets
+	@IBOutlet private weak var noResultsView: UIView!
+	@IBOutlet private weak var collectionView: UICollectionView!
+	
+	weak var delegate: MusicListViewControllerDelegate?
+	
+	// MARK: Initialization
 	required init(with viewModel: MusicListViewModelProtocol) {
 		self.viewModel = viewModel
 		
@@ -40,21 +46,17 @@ final class MusicListViewController: UIViewController, BaseView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	// MARK: View controller lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		setupSearchController()
 		setupViews()
 		setupCollectionView()
-		viewModel.getMusicData(with: "Metallica")
+		viewModel.getMusicData(with: "Rock")
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		
-		navigationController?.navigationBar.prefersLargeTitles = true
-	}
-	
+	// MARK: IBActions
 	@IBAction private func filterAction(_ sender: UISegmentedControl) {
 		viewModel.sortDataset(sortingOption: SortingOptions(rawValue: sender.selectedSegmentIndex) ?? SortingOptions.length)
 	}
@@ -92,6 +94,7 @@ extension MusicListViewController: UICollectionViewDelegate, UICollectionViewDat
 	}
 }
 
+// MARK: - UISearchBarDelegate
 extension MusicListViewController: UISearchBarDelegate {
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		guard let searchText = searchController.searchBar.text else { return }
@@ -100,6 +103,7 @@ extension MusicListViewController: UISearchBarDelegate {
 	}
 }
 
+// MARK: - MusicListViewModelDelegate
 extension MusicListViewController: MusicListViewModelDelegate {
 	func MusicListViewModel(didUpdate songs: [Song]) {
 		DispatchQueue.main.async {
@@ -122,6 +126,7 @@ extension MusicListViewController: MusicListViewModelDelegate {
 	}
 }
 
+// MARK: - Private functions
 private extension MusicListViewController {
 	func setupViews() {
 		self.title = NSLocalizedString("iTunes Music search", comment: "list title")
@@ -131,7 +136,7 @@ private extension MusicListViewController {
 		searchController.searchBar.delegate = self
 		searchController.definesPresentationContext = true
 		searchController.obscuresBackgroundDuringPresentation = false
-		searchController.searchBar.placeholder =  NSLocalizedString("Search by artist, song name", comment: "search bar placeholder")
+		searchController.searchBar.placeholder =  NSLocalizedString("Search by artists, songs, albums, genres", comment: "search bar placeholder")
 		navigationItem.searchController = searchController
 		definesPresentationContext = true
 	}

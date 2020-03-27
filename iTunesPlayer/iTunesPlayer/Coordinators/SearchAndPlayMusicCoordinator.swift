@@ -13,10 +13,12 @@ final class SearchAndPlayMusicCoordinator: Coordinator {
 	
 	let navigationController: UINavigationController
 	
+	// MARK: Initialization
 	init(with navigationController: UINavigationController) {
 		self.navigationController = navigationController
 	}
 	
+	// MARK: Protocol functions
 	func start() {
 		let networkClient = NetworkClient(session: URLSession.shared)
 		let musicDatasource = MusicListDatasource(with: networkClient)
@@ -28,6 +30,7 @@ final class SearchAndPlayMusicCoordinator: Coordinator {
 	}
 }
 
+// MARK: - MusicListViewControllerDelegate
 extension SearchAndPlayMusicCoordinator: MusicListViewControllerDelegate {
 	func musicListViewController(didSelectElementAt index: Int, from dataset: [Song]) {
 		let networkClient = NetworkClient(session: URLSession.shared)
@@ -40,6 +43,7 @@ extension SearchAndPlayMusicCoordinator: MusicListViewControllerDelegate {
 	}
 }
 
+// MARK: - SongPreviewViewControllerDelegate
 extension SearchAndPlayMusicCoordinator: SongPreviewViewControllerDelegate {
 	func songPreviewViewController(_ controller: UIViewController, share items: [Any]) {
 		let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)

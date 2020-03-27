@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 import AVFoundation
 
+// MARK: - SongPreviewViewControllerDelegate
 protocol SongPreviewViewControllerDelegate: class {
 	func songPreviewViewController(_ controller: UIViewController, share items: [Any])
 }
@@ -17,11 +18,11 @@ protocol SongPreviewViewControllerDelegate: class {
 // MARK: - SongPreviewViewController
 final class SongPreviewViewController: UIViewController, BaseView {
 	
+	// MARK: Private properties
 	private let viewModel: SongPreviewViewModelProtocol
 	private var audioPlayer: AVAudioPlayer?
 	
-	weak var delegate: SongPreviewViewControllerDelegate?
-	
+	// MARK: IBOutlets
 	@IBOutlet private weak var genreLabel: UILabel!
 	@IBOutlet private weak var artistNameLabel: UILabel!
 	@IBOutlet private weak var albumNameLabel: UILabel!
@@ -29,6 +30,9 @@ final class SongPreviewViewController: UIViewController, BaseView {
 	@IBOutlet private weak var playPauseButton: UIButton!
 	@IBOutlet private weak var coverImageVIew: UIImageView!
 	
+	weak var delegate: SongPreviewViewControllerDelegate?
+	
+	// MARK: Initialization
 	required init(with viewModel: SongPreviewViewModelProtocol) {
 		self.viewModel = viewModel
 		
@@ -39,6 +43,7 @@ final class SongPreviewViewController: UIViewController, BaseView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	// MARK: View controller lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: ViewImages.shareImage,
@@ -54,6 +59,7 @@ final class SongPreviewViewController: UIViewController, BaseView {
 		navigationController?.navigationBar.prefersLargeTitles = false
 	}
 	
+	// MARK: IBActions
 	@IBAction private func previousSong(_ sender: Any) {
 		viewModel.switchSong(status: .backward)
 	}
@@ -77,13 +83,11 @@ final class SongPreviewViewController: UIViewController, BaseView {
 	}
 	
 	@objc func share(sender: UIView) {
-		let textToShare = "\(viewModel.selectedSong.trackName ?? "") from \(viewModel.selectedSong.artistName)"
-		guard let previewURL = viewModel.selectedSong.previewUrl else { return }
-		
-		delegate?.songPreviewViewController(self, share: [textToShare, previewURL])
+		delegate?.songPreviewViewController(self, share: viewModel.shareData)
 	}
 }
 
+// MARK: - Private functions
 private extension SongPreviewViewController {
 	func setupViews(with selectedSong: Song) {
 		titleLabel.text = selectedSong.trackName
@@ -106,6 +110,7 @@ private extension SongPreviewViewController {
 	}
 }
 
+// MARK: - SongPreviewViewModelDelegate
 extension SongPreviewViewController: SongPreviewViewModelDelegate {
 	func songPreviewViewModel(updatedSong: Song) {
 		audioPlayer = nil

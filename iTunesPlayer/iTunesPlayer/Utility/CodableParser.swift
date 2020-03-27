@@ -7,7 +7,15 @@
 //
 
 import Foundation
-final class Parser {
+
+// MARK: - Parser
+protocol Parser {
+	func decode<T: Decodable>(_ data: Data) throws -> T
+	func encode<T: Encodable>(_ object: T?) -> Data?
+}
+
+// MARK: - CodableParser
+final class CodableParser: Parser {
 	private let encoder = JSONEncoder()
 	private let decoder = JSONDecoder()
 	
@@ -25,14 +33,4 @@ final class Parser {
 	func decode<T: Decodable>(_ data: Data) throws -> T {
 		return try decoder.decode(T.self, from: data)
 	}
-}
-
-private extension DateFormatter {
-	static let defaultFormatterWithSeconds: DateFormatter = {
-		let formatter = DateFormatter()
-		formatter.timeZone = TimeZone(identifier: "UTC")
-		formatter.locale = Locale(identifier: "en_US")
-		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-		return formatter
-	}()
 }

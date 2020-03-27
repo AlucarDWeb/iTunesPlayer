@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - BaseView
 protocol BaseView {}
 
 extension BaseView where Self: UIViewController {

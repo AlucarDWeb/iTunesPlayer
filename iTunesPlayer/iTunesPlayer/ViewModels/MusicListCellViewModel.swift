@@ -8,13 +8,16 @@
 
 import UIKit
 
+// MARK: - MusicListCellViewModel
 struct MusicListCellViewModel: SongViewModel {
 	private let song: Song
 	
+	// MARK: Initialization
 	init(with song: Song) {
 		self.song = song
 	}
 	
+	// MARK: Public properties
 	var title: String {
 		return song.trackName ?? ""
 	}

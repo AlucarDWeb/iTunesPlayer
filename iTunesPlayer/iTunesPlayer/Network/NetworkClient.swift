@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - NetworkClientProtocol
 protocol NetworkClientProtocol {
 	init(session: URLSession)
 	
@@ -18,14 +19,16 @@ protocol NetworkClientProtocol {
 				  completionHandler: @escaping (Result<URL, Error>) -> Void)
 }
 
+// MARK: - NetworkClient
 final class NetworkClient: NetworkClientProtocol {
-	
 	private let session: URLSession
 	
+	// MARK: Initialization
 	init(session: URLSession) {
 		self.session = session
 	}
 	
+	// MARK: Protocol functions
 	func perform<T: Decodable>(requestType: NetworkTaskType,
 							   completionHandler: @escaping (Result<T, Error>) -> Void)  {
 		let task = requestType.task()
@@ -59,7 +62,7 @@ final class NetworkClient: NetworkClientProtocol {
 			}
 			
 			do {
-				let codableData: T = try Parser().decode(data)
+				let codableData: T = try CodableParser().decode(data)
 				completionHandler(.success(codableData))
 			} catch let error {
 				completionHandler(.failure(error))
@@ -69,7 +72,9 @@ final class NetworkClient: NetworkClientProtocol {
 		dataTask.resume()
 	}
 	
-	func download(from URL: URL, to destinationURL: URL?, completionHandler: @escaping (Result<URL, Error>) -> Void) {
+	func download(from URL: URL,
+				  to destinationURL: URL?,
+				  completionHandler: @escaping (Result<URL, Error>) -> Void) {
 	
 		guard let destinationURL = destinationURL else { return }
 
