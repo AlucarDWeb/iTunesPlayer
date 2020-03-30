@@ -18,12 +18,20 @@
 		D2457ADA242A493700A62616 /* SongPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2457AD8242A493700A62616 /* SongPreviewViewController.xib */; };
 		D2C6938E242BA37900660FB7 /* SongPreviewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C6938D242BA37900660FB7 /* SongPreviewDatasource.swift */; };
 		D2CCDC2C242E0772000D4EBA /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCDC2B242E0772000D4EBA /* DateFormatterExtension.swift */; };
+		D2CCDC30242E2DC5000D4EBA /* MockedURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCDC2F242E2DC5000D4EBA /* MockedURLProtocol.swift */; };
+		D2CCDC32242E2E70000D4EBA /* MocksProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCDC31242E2E70000D4EBA /* MocksProvider.swift */; };
+		D2CCDC34242E313C000D4EBA /* MusicListDatasourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCDC33242E313C000D4EBA /* MusicListDatasourceMock.swift */; };
+		D2CCDC36242E333A000D4EBA /* NetworkClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCDC35242E333A000D4EBA /* NetworkClientMock.swift */; };
+		D2CCDC38242E4660000D4EBA /* SongPreviewDatasourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCDC37242E4660000D4EBA /* SongPreviewDatasourceMock.swift */; };
+		D2CCDC3A242E4985000D4EBA /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCDC39242E4985000D4EBA /* NetworkClientTests.swift */; };
+		D2CCDC3C24320461000D4EBA /* MusicListCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCDC3B24320461000D4EBA /* MusicListCellViewModelTests.swift */; };
+		D2CCDC3E24321ECD000D4EBA /* MusicListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCDC3D24321ECD000D4EBA /* MusicListViewModelTests.swift */; };
+		D2CCDC4024322145000D4EBA /* SongPreviewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCDC3F24322145000D4EBA /* SongPreviewViewModelTests.swift */; };
 		D2CF83D1242502A100B31D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D0242502A100B31D1D /* AppDelegate.swift */; };
 		D2CF83D3242502A100B31D1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83D2242502A100B31D1D /* SceneDelegate.swift */; };
 		D2CF83D8242502A100B31D1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF83D6242502A100B31D1D /* Main.storyboard */; };
 		D2CF83DA242502A100B31D1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2CF83D9242502A100B31D1D /* Assets.xcassets */; };
 		D2CF83DD242502A100B31D1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF83DB242502A100B31D1D /* LaunchScreen.storyboard */; };
-		D2CF83E8242502A200B31D1D /* iTunesPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83E7242502A200B31D1D /* iTunesPlayerTests.swift */; };
 		D2CF83F92425050300B31D1D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83F82425050300B31D1D /* AppCoordinator.swift */; };
 		D2CF83FB2425051400B31D1D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83FA2425051400B31D1D /* Coordinator.swift */; };
 		D2CF83FD242505AB00B31D1D /* SearchAndPlayMusicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF83FC242505AB00B31D1D /* SearchAndPlayMusicCoordinator.swift */; };
@@ -62,6 +70,15 @@
 		D2457AD8242A493700A62616 /* SongPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongPreviewViewController.xib; sourceTree = "<group>"; };
 		D2C6938D242BA37900660FB7 /* SongPreviewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPreviewDatasource.swift; sourceTree = "<group>"; };
 		D2CCDC2B242E0772000D4EBA /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
+		D2CCDC2F242E2DC5000D4EBA /* MockedURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedURLProtocol.swift; sourceTree = "<group>"; };
+		D2CCDC31242E2E70000D4EBA /* MocksProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocksProvider.swift; sourceTree = "<group>"; };
+		D2CCDC33242E313C000D4EBA /* MusicListDatasourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListDatasourceMock.swift; sourceTree = "<group>"; };
+		D2CCDC35242E333A000D4EBA /* NetworkClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientMock.swift; sourceTree = "<group>"; };
+		D2CCDC37242E4660000D4EBA /* SongPreviewDatasourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPreviewDatasourceMock.swift; sourceTree = "<group>"; };
+		D2CCDC39242E4985000D4EBA /* NetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
+		D2CCDC3B24320461000D4EBA /* MusicListCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCellViewModelTests.swift; sourceTree = "<group>"; };
+		D2CCDC3D24321ECD000D4EBA /* MusicListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewModelTests.swift; sourceTree = "<group>"; };
+		D2CCDC3F24322145000D4EBA /* SongPreviewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPreviewViewModelTests.swift; sourceTree = "<group>"; };
 		D2CF83CD242502A100B31D1D /* iTunesPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF83D0242502A100B31D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CF83D2242502A100B31D1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +87,6 @@
 		D2CF83DC242502A100B31D1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2CF83DE242502A100B31D1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2CF83E3242502A200B31D1D /* iTunesPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2CF83E7242502A200B31D1D /* iTunesPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesPlayerTests.swift; sourceTree = "<group>"; };
 		D2CF83E9242502A200B31D1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2CF83F82425050300B31D1D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D2CF83FA2425051400B31D1D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -134,6 +150,29 @@
 			path = SongDetailViewController;
 			sourceTree = "<group>";
 		};
+		D2CCDC2D242E2D3D000D4EBA /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D2CCDC39242E4985000D4EBA /* NetworkClientTests.swift */,
+				D2CCDC3B24320461000D4EBA /* MusicListCellViewModelTests.swift */,
+				D2CCDC3D24321ECD000D4EBA /* MusicListViewModelTests.swift */,
+				D2CCDC3F24322145000D4EBA /* SongPreviewViewModelTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		D2CCDC2E242E2D44000D4EBA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D2CCDC2F242E2DC5000D4EBA /* MockedURLProtocol.swift */,
+				D2CCDC31242E2E70000D4EBA /* MocksProvider.swift */,
+				D2CCDC33242E313C000D4EBA /* MusicListDatasourceMock.swift */,
+				D2CCDC35242E333A000D4EBA /* NetworkClientMock.swift */,
+				D2CCDC37242E4660000D4EBA /* SongPreviewDatasourceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		D2CF83C4242502A100B31D1D = {
 			isa = PBXGroup;
 			children = (
@@ -176,7 +215,8 @@
 		D2CF83E6242502A200B31D1D /* iTunesPlayerTests */ = {
 			isa = PBXGroup;
 			children = (
-				D2CF83E7242502A200B31D1D /* iTunesPlayerTests.swift */,
+				D2CCDC2E242E2D44000D4EBA /* Mocks */,
+				D2CCDC2D242E2D3D000D4EBA /* Tests */,
 				D2CF83E9242502A200B31D1D /* Info.plist */,
 			);
 			path = iTunesPlayerTests;
@@ -325,6 +365,7 @@
 					};
 					D2CF83E2242502A200B31D1D = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = D2CF83CC242502A100B31D1D;
 					};
 				};
@@ -410,7 +451,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2CF83E8242502A200B31D1D /* iTunesPlayerTests.swift in Sources */,
+				D2CCDC32242E2E70000D4EBA /* MocksProvider.swift in Sources */,
+				D2CCDC38242E4660000D4EBA /* SongPreviewDatasourceMock.swift in Sources */,
+				D2CCDC36242E333A000D4EBA /* NetworkClientMock.swift in Sources */,
+				D2CCDC3C24320461000D4EBA /* MusicListCellViewModelTests.swift in Sources */,
+				D2CCDC4024322145000D4EBA /* SongPreviewViewModelTests.swift in Sources */,
+				D2CCDC3E24321ECD000D4EBA /* MusicListViewModelTests.swift in Sources */,
+				D2CCDC34242E313C000D4EBA /* MusicListDatasourceMock.swift in Sources */,
+				D2CCDC30242E2DC5000D4EBA /* MockedURLProtocol.swift in Sources */,
+				D2CCDC3A242E4985000D4EBA /* NetworkClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +648,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GM52W4CC3U;
 				INFOPLIST_FILE = iTunesPlayerTests/Info.plist;
@@ -610,6 +660,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Ferdinando-Furci.iTunesPlayerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTunesPlayer.app/iTunesPlayer";
@@ -621,6 +672,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GM52W4CC3U;
 				INFOPLIST_FILE = iTunesPlayerTests/Info.plist;

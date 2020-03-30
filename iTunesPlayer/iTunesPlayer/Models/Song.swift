@@ -65,4 +65,28 @@ struct Song: Decodable {
 		previewUrl = try container.decodeIfPresent(URL.self, forKey: .previewUrl)
 		currency = try container.decode(CurrencyUnit.self, forKey: .currency)
 	}
+	
+	init(artistName: String,
+		 trackName: String,
+		 collectionName: String,
+		 releaseDate: Date,
+		 thumbnail: URL,
+		 coverDetail: URL,
+		 trackPrice: Double,
+		 genre: String,
+		 trackTimeMillis: Double,
+		 previewUrl: URL,
+		 currency: CurrencyUnit) {
+		self.artistName = artistName
+		self.trackName = trackName
+		self.collectionName = collectionName
+		self.releaseDate = releaseDate
+		self.thumbnail = thumbnail
+		self.coverDetail = coverDetail
+		self.trackPrice = trackPrice
+		self.genre = genre
+		self.trackTimeMillis = trackTimeMillis
+		self.previewUrl = previewUrl
+		self.currency = currency
+	}
 }

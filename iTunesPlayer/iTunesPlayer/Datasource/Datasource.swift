@@ -10,5 +10,5 @@ import Foundation
 
 // MARK: - Datasource
 protocol Datasource {
-	init (with networkClient: NetworkClient)
+	init (with networkClient: NetworkClientProtocol)
 }

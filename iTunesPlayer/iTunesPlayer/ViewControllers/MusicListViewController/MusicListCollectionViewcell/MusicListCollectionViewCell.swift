@@ -23,6 +23,7 @@ final class MusicListCollectionViewCell: UICollectionViewCell {
 	@IBOutlet private weak var albumNameLabel: UILabel!
 	@IBOutlet private weak var titleLabel: UILabel!
 	@IBOutlet private weak var coverImageView: UIImageView!
+	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		

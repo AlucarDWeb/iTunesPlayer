@@ -24,10 +24,10 @@ final class SongPreviewDatasource: SongPreviewDatasourceProtocol {
 		return documentsURL.appendingPathComponent("tempSong.m4a")
 	}
 	
-	private let networkClient: NetworkClient
+	private let networkClient: NetworkClientProtocol
 	
 	// MARK: Initialization
-	init(with networkClient: NetworkClient) {
+	init(with networkClient: NetworkClientProtocol) {
 		self.networkClient = networkClient
 	}
 	

@@ -67,7 +67,7 @@ final class SongPreviewViewController: UIViewController, BaseView {
 	@IBAction private func playOrPause(_ sender: Any) {
 		if let audioplayer = audioPlayer {
 			guard audioplayer.isPlaying else {
-				viewModel.play(newSong: false)
+				viewModel.play()
 				return
 			}
 			
@@ -75,7 +75,7 @@ final class SongPreviewViewController: UIViewController, BaseView {
 			return
 		}
 		
-		viewModel.play(newSong: true)
+		viewModel.downloadAndPlay()
 	}
 	
 	@IBAction private func nextSong(_ sender: Any) {

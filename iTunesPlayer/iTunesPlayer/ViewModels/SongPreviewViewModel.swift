@@ -22,7 +22,8 @@ protocol SongPreviewViewModelProtocol {
 	
 	init (with dataset: [Song], selectedIndex: Int, and datasource: SongPreviewDatasourceProtocol)
 	
-	func play(newSong: Bool)
+	func play()
+	func downloadAndPlay()
 	func pause()
 	func switchSong(status: SongSwitchStatus)
 }
@@ -62,17 +63,10 @@ final class SongPreviewViewModel: SongPreviewViewModelProtocol {
 	}
 	
 	// MARK: Protocol functions
-	func play(newSong: Bool) {
-		if !newSong {
-			guard let destinationURL = datasource.songDownloadDestinationURL else { return }
-			
-			delegate?.songPreviewViewModel(preview: destinationURL)
-			return
-		}
+	func downloadAndPlay() {
+		guard let previewURL = selectedSong.previewUrl else { return }
 		
-		guard let localPreviewURL = selectedSong.previewUrl else { return }
-		
-		datasource.download(from: localPreviewURL, to: datasource.songDownloadDestinationURL) { [weak self] result in
+		datasource.download(from: previewURL, to: datasource.songDownloadDestinationURL) { [weak self] result in
 			guard let self = self else { return }
 			
 			switch result {
@@ -82,6 +76,12 @@ final class SongPreviewViewModel: SongPreviewViewModelProtocol {
 				self.delegate?.songPreviewViewModel(willShow: error)
 			}
 		}
+	}
+	
+	func play() {
+		guard let destinationURL = datasource.songDownloadDestinationURL else { return }
+		
+		delegate?.songPreviewViewModel(preview: destinationURL)
 	}
 	
 	func pause() {
