@@ -120,7 +120,6 @@ extension SongPreviewViewController: SongPreviewViewModelDelegate {
 	
 	func songPreviewViewModel(willPausePlaying: Bool) {
 		guard willPausePlaying else { return }
-		
 		setPlayButtonImage(image: ViewImages.playImage)
 		audioPlayer?.pause()
 	}
@@ -140,7 +139,6 @@ extension SongPreviewViewController: SongPreviewViewModelDelegate {
 	func songPreviewViewModel(willShow error: Error?) {
 		DispatchQueue.main.async {
 			guard let error = error else { return }
-			
 			self.showErrorPopup(with: error)
 		}
 	}

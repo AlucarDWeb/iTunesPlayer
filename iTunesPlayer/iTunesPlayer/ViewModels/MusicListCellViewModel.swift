@@ -46,7 +46,7 @@ struct MusicListCellViewModel: SongViewModel {
 	}
 	
 	var price: String {
-		let price = song.trackPrice?.description ?? ""
+		guard let price = song.trackPrice?.description else { return "" }
 		return "\(price)\(currency)"
 	}
 	

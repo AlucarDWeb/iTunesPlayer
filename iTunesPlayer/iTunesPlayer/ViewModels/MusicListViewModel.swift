@@ -53,7 +53,6 @@ final class MusicListViewModel: MusicListViewModelProtocol {
 		self.delegate?.MusicListViewModel(shouldShowActivityIndicator: true)
 		datasource.fetch(with: parameters) { [weak self] (result: Result<Songlist, Error>) in
 			guard let self = self else { return }
-			
 			self.delegate?.MusicListViewModel(shouldShowActivityIndicator: false)
 			
 			switch result {

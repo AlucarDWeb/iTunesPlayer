@@ -68,7 +68,6 @@ final class SongPreviewViewModel: SongPreviewViewModelProtocol {
 		
 		datasource.download(from: previewURL, to: datasource.songDownloadDestinationURL) { [weak self] result in
 			guard let self = self else { return }
-			
 			switch result {
 			case .success(let localPreviewURL):
 				self.delegate?.songPreviewViewModel(preview: localPreviewURL)
@@ -80,7 +79,6 @@ final class SongPreviewViewModel: SongPreviewViewModelProtocol {
 	
 	func play() {
 		guard let destinationURL = datasource.songDownloadDestinationURL else { return }
-		
 		delegate?.songPreviewViewModel(preview: destinationURL)
 	}
 	
